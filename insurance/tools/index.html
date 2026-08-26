@@ -10,6 +10,7 @@
     <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
     <link rel="stylesheet" href="./toolkit.css" />
+    <script src="./access-client.js" defer></script>
     <script src="./toolkit.js" defer></script>
   </head>
   <body>
@@ -23,7 +24,7 @@
         <div class="access-copy">
           <p class="kicker">One account / one passcode / no database</p>
           <h1 id="gate-title">Adviser<br /><em>Toolkit</em></h1>
-          <p class="lead">输入管理员返回的账号与对应口令。验证为 <code>approved</code> 后，CIM3 费率查询与优惠计算会在当前网页中在线加载。</p>
+          <p class="lead">输入管理员返回的账号与对应口令。验证为 <code>approved</code> 后，将进入独立的工具列表页。</p>
           <div class="tool-preview"><span>CIM3 费率查询器</span><span>2026 优惠计算器</span></div>
         </div>
         <form id="unlock-form">
@@ -37,18 +38,6 @@
         </form>
       </section>
 
-      <section class="dashboard" id="toolkit-dashboard" hidden>
-        <div class="dashboard-head"><div><p class="kicker">Approved / choose a tool</p><h2>客户工具</h2></div><button id="lock-toolkit" type="button">锁定并退出</button></div>
-        <div class="tool-grid">
-          <button class="tool-card" type="button" data-tool="cim3"><span>01 / LIVE</span><h3>CIM3<br />费率查询器</h3><p>按 ANB、性别、吸烟状况、缴费年期与基础保额查询 5,448 条费率。</p><strong>打开工具 ↗</strong></button>
-          <button class="tool-card promo" type="button" data-tool="promo"><span>02 / ARCHIVE RULES</span><h3>优惠<br />计算器</h3><p>重建 2026 年 4 月推广规则，用于回赠档位、预缴现值与资格复核。</p><strong>打开工具 ↗</strong></button>
-        </div>
-      </section>
-
-      <section class="tool-stage" id="tool-stage" hidden>
-        <div class="tool-bar"><button id="back-to-toolkit" type="button">← 工具列表</button><strong id="active-tool-name">TOOL / APPROVED</strong><button id="lock-from-tool" type="button">锁定并退出</button></div>
-        <iframe id="tool-frame" title="Adviser Toolkit 在线工具" sandbox="allow-scripts allow-forms allow-modals allow-downloads"></iframe>
-      </section>
     </main>
     <footer><p>© 2026 Outisseus</p><p>Account + passcode → approved</p></footer>
   </body>

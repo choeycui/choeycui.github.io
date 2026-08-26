@@ -1,13 +1,32 @@
-const form=document.querySelector("#unlock-form"),accountInput=document.querySelector("#account-name"),approvalInput=document.querySelector("#approval-code"),status=document.querySelector("#gate-status"),accessPanel=document.querySelector("#access-panel"),dashboard=document.querySelector("#toolkit-dashboard"),stage=document.querySelector("#tool-stage"),frame=document.querySelector("#tool-frame"),submitButton=form.querySelector("button[type='submit']");
-const encoder=new TextEncoder(),decoder=new TextDecoder(),payloadMagic=encoder.encode("OUTIS2");let sessionKey=null;
-const toolConfig={cim3:{file:"./payloads/cim3.bin",title:"CIM3 费率查询器",needle:"<title>CIM3 费率查询器</title>"},promo:{file:"./payloads/promo.bin",title:"2026 优惠计算器",needle:"<title>2026 年 4 月优惠计算器</title>"}};
-function fromBase64Url(value){const normalized=value.replaceAll("-","+").replaceAll("_","/");const padded=normalized+"=".repeat((4-normalized.length%4)%4);return Uint8Array.from(atob(padded),c=>c.charCodeAt(0))}
-function sameBytes(a,b){if(a.length!==b.length)return false;for(let i=0;i<a.length;i+=1)if(a[i]!==b[i])return false;return true}
-function setStatus(message,isError=false,isApproved=false){status.textContent=message;status.classList.toggle("is-error",isError);status.classList.toggle("is-approved",isApproved)}
-async function verifyApproval(account,token){const parts=token.trim().split(".");if(parts.length!==2)throw new Error("approval-invalid");const payloadBytes=fromBase64Url(parts[0]),signature=fromBase64Url(parts[1]),approval=JSON.parse(decoder.decode(payloadBytes));if(approval.v!==1||approval.tool!=="adviser-toolkit"||approval.account!==account)throw new Error("approval-invalid");const response=await fetch("./access/config.json",{cache:"no-store"});if(!response.ok)throw new Error("tool-unavailable");const config=await response.json();const publicKey=await crypto.subtle.importKey("jwk",config.publicKey,{name:"ECDSA",namedCurve:"P-256"},false,["verify"]);const valid=await crypto.subtle.verify({name:"ECDSA",hash:"SHA-256"},publicKey,signature,payloadBytes);if(!valid)throw new Error("approval-invalid");const contentKey=fromBase64Url(approval.key);if(contentKey.length!==32)throw new Error("approval-invalid");return contentKey}
-async function decryptTool(name){const item=toolConfig[name];if(!item||!sessionKey)throw new Error("tool-unavailable");const response=await fetch(item.file,{cache:"no-store"});if(!response.ok)throw new Error("tool-unavailable");const payload=new Uint8Array(await response.arrayBuffer()),headerLength=payloadMagic.length+12;if(payload.length<=headerLength||!sameBytes(payload.slice(0,payloadMagic.length),payloadMagic))throw new Error("tool-unavailable");const key=await crypto.subtle.importKey("raw",sessionKey,{name:"AES-GCM"},false,["decrypt"]),iv=payload.slice(payloadMagic.length,headerLength),ciphertext=payload.slice(headerLength),plaintext=await crypto.subtle.decrypt({name:"AES-GCM",iv},key,ciphertext),html=decoder.decode(plaintext);if(!html.includes(item.needle))throw new Error("tool-unavailable");return {html,title:item.title}}
-function closeTool(){frame.srcdoc="";stage.hidden=true;dashboard.hidden=false;document.body.classList.remove("is-tool-open")}
-function lockToolkit(){sessionKey=null;frame.srcdoc="";stage.hidden=true;dashboard.hidden=true;accessPanel.hidden=false;document.body.classList.remove("is-tool-open");form.reset();setStatus("工具已锁定。请输入对应的账号和口令。");accountInput.focus()}
-form.addEventListener("submit",async event=>{event.preventDefault();const account=accountInput.value.trim(),code=approvalInput.value.trim();if(!account||!code)return;submitButton.disabled=true;setStatus("正在验证账号与口令…");try{sessionKey=await verifyApproval(account,code);setStatus("approved",false,true);accessPanel.hidden=true;dashboard.hidden=false;approvalInput.value=""}catch(error){sessionKey=null;setStatus(error instanceof Error&&error.message==="tool-unavailable"?"工具配置暂时不可用，请稍后再试。":"未获批准：账号或口令不匹配。",true);approvalInput.select()}finally{submitButton.disabled=false}});
-document.querySelectorAll("[data-tool]").forEach(button=>button.addEventListener("click",async()=>{button.disabled=true;try{const tool=await decryptTool(button.dataset.tool);document.querySelector("#active-tool-name").textContent=`${tool.title} / APPROVED`;frame.srcdoc=tool.html;dashboard.hidden=true;stage.hidden=false;document.body.classList.add("is-tool-open")}catch{setStatus("工具文件暂时不可用，请稍后再试。",true);lockToolkit()}finally{button.disabled=false}}));
-document.querySelector("#back-to-toolkit").addEventListener("click",closeTool);document.querySelector("#lock-toolkit").addEventListener("click",lockToolkit);document.querySelector("#lock-from-tool").addEventListener("click",lockToolkit);
+const form = document.querySelector("#unlock-form");
+const accountInput = document.querySelector("#account-name");
+const approvalInput = document.querySelector("#approval-code");
+const status = document.querySelector("#gate-status");
+const submitButton = form.querySelector("button[type='submit']");
+
+function setStatus(message, isError = false) {
+  status.textContent = message;
+  status.classList.toggle("is-error", isError);
+}
+
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const account = accountInput.value.trim();
+  const passcode = approvalInput.value.trim();
+  if (!account || !passcode) return;
+
+  submitButton.disabled = true;
+  setStatus("正在验证账号与口令…");
+  try {
+    await window.OutisseusAccess.verifyApproval(account, passcode);
+    window.OutisseusAccess.saveSession(account, passcode);
+    setStatus("approved · 正在进入工具列表");
+    window.location.assign("./list/");
+  } catch (error) {
+    const unavailable = error instanceof Error && error.message === "tool-unavailable";
+    setStatus(unavailable ? "工具配置暂时不可用，请稍后再试。" : "未获批准：账号或口令不匹配。", true);
+    approvalInput.select();
+  } finally {
+    submitButton.disabled = false;
+  }
+});

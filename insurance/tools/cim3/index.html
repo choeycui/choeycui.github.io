@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#171914" />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <title>CIM3 费率查询器 — Outisseus</title>
+    <link rel="icon" href="../../../favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../tool-page.css" />
+    <script src="../access-client.js" defer></script>
+    <script src="../tool-page.js" defer></script>
+  </head>
+  <body data-tool="cim3">
+    <header class="tool-bar">
+      <a href="../list/">← 工具列表</a>
+      <strong>CIM3 费率查询器 / APPROVED</strong>
+      <button id="lock-tool" type="button">锁定并退出</button>
+    </header>
+    <main>
+      <div class="loading" id="loading"><span></span><p>正在验证会话并加载费率工具…</p></div>
+      <iframe id="tool-frame" title="CIM3 费率查询器" sandbox="allow-scripts allow-forms allow-modals allow-downloads" hidden></iframe>
+    </main>
+  </body>
+</html>

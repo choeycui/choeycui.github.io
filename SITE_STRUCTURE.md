@@ -9,6 +9,9 @@ The root is the general personal profile. Public identities have separate pages 
 | `/builder/building.html` | Dated progress, decisions, constraints, and failures | Live |
 | `/insurance/` | Single-screen financial-adviser portal: Client Tools / Research / AI | Live |
 | `/insurance/tools/` | Approval-gated online toolkit: CIM3 and promotion calculator | Live |
+| `/insurance/tools/list/` | Approved tool selector; no embedded tool content | Live |
+| `/insurance/tools/cim3/` | Dedicated themed CIM3 rate-query route | Live |
+| `/insurance/tools/promo/` | Dedicated promotion-calculator route | Live |
 | `/insurance/reports/` | Public adviser research gallery and evidence index | Live |
 | `/insurance/ai/` | Reserved expert-system architecture and dependencies | Reserved |
 | `/projects/` | Inspectable project index and detail pages | Reserved |

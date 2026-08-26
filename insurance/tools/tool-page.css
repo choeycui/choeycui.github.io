@@ -1,0 +1,16 @@
+:root { --paper:#edf0e9; --ink:#171914; --muted:#899087; --green:#8eb49a; --line:rgba(237,240,233,.22); --sans:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif; --mono:"SFMono-Regular",Consolas,monospace; }
+* { box-sizing:border-box; }
+html,body { width:100%; height:100%; margin:0; overflow:hidden; }
+body { display:grid; grid-template-rows:58px minmax(0,1fr); background:var(--paper); color:var(--ink); font-family:var(--sans); }
+.tool-bar { display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:16px; align-items:center; min-width:0; padding:0 18px; border-bottom:1px solid var(--line); background:var(--ink); color:var(--paper); }
+.tool-bar a,.tool-bar button { justify-self:start; width:auto; min-height:36px; padding:0 14px; border:1px solid rgba(237,240,233,.52); border-radius:0; background:transparent; color:var(--paper); font:700 10px var(--mono); line-height:34px; text-decoration:none; cursor:pointer; }
+.tool-bar strong { min-width:0; overflow:hidden; font:700 10px var(--mono); letter-spacing:.04em; text-align:center; text-overflow:ellipsis; text-transform:uppercase; white-space:nowrap; }
+.tool-bar button { justify-self:end; background:var(--paper); color:var(--ink); line-height:normal; }
+main { position:relative; min-height:0; }
+#tool-frame { display:block; width:100%; height:100%; border:0; background:var(--paper); }
+.loading { position:absolute; inset:0; display:grid; place-content:center; gap:14px; text-align:center; }
+.loading[hidden],#tool-frame[hidden] { display:none !important; }
+.loading span { width:34px; height:34px; margin:auto; border:3px solid rgba(72,103,81,.2); border-top-color:#486751; border-radius:50%; animation:spin .8s linear infinite; }
+.loading p { margin:0; color:#6a7067; font:10px var(--mono); text-transform:uppercase; }
+@keyframes spin { to { transform:rotate(360deg); } }
+@media(max-width:620px) { .tool-bar { gap:8px; padding-inline:9px; } .tool-bar a,.tool-bar button { min-height:34px; padding-inline:9px; font-size:9px; line-height:32px; } .tool-bar strong { font-size:8px; } }
