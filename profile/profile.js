@@ -4,7 +4,7 @@
 
   const entries = [...timeline.querySelectorAll(".timeline-entry")];
   const verticalLayout = window.matchMedia(
-    "(max-width: 760px), (max-width: 1100px) and (orientation: portrait)",
+    "(max-width: 760px), (max-width: 1100px) and (orientation: portrait), (hover: none) and (max-device-width: 700px)",
   );
   let frame = 0;
 

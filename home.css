@@ -18,6 +18,8 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -111,20 +113,21 @@ a {
 
 .home-hero {
   display: grid;
-  grid-template-columns: minmax(300px, 0.72fr) minmax(0, 1.28fr);
-  gap: clamp(50px, 7vw, 116px);
+  grid-template-columns: minmax(250px, clamp(280px, 31vw, 420px)) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 96px);
   align-items: center;
-  min-height: calc(100vh - 72px);
-  padding-block: 72px;
+  min-height: calc(100svh - 72px);
+  padding-block: clamp(42px, 6vh, 72px);
 }
 
 .home-portrait {
+  width: 100%;
   align-self: center;
 }
 
 .portrait-frame {
   position: relative;
-  width: min(100%, 420px);
+  width: min(100%, 420px, calc((100svh - 180px) * 0.88));
   aspect-ratio: 0.88;
   padding: 16px 16px 64px;
   background: #ded7ca;
@@ -182,7 +185,7 @@ a {
 .home-intro h1 {
   margin: 0;
   font-family: var(--serif);
-  font-size: clamp(76px, 10.5vw, 160px);
+  font-size: clamp(68px, min(10.5vw, 14vh), 160px);
   font-weight: 500;
   line-height: 0.77;
   letter-spacing: -0.07em;
@@ -201,7 +204,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 9px;
-  margin-top: clamp(44px, 5vw, 70px);
+  margin-top: clamp(28px, min(5vw, 6vh), 70px);
 }
 
 .identity-line span {
@@ -217,7 +220,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 28px;
-  margin-top: 30px;
+  margin-top: clamp(20px, 3vh, 30px);
 }
 
 .home-text-link {
@@ -1042,17 +1045,12 @@ a {
 }
 
 @media (max-width: 960px) {
-  .home-hero,
   .now-layout,
   .home-boundary .home-shell,
   .advisory-hero,
   .advisory-section-head,
   .advisory-note .home-shell {
     grid-template-columns: 1fr;
-  }
-
-  .home-hero {
-    min-height: auto;
   }
 
   .home-portrait {
@@ -1090,14 +1088,14 @@ a {
   }
 }
 
-@media (min-width: 701px) and (max-width: 960px) {
+@media (min-width: 701px) and (max-aspect-ratio: 4 / 3) {
   .home-hero {
     position: relative;
-    grid-template-columns: minmax(250px, 0.86fr) minmax(0, 1.14fr);
-    gap: clamp(32px, 5vw, 56px);
+    grid-template-columns: minmax(250px, clamp(270px, 38vw, 420px)) minmax(0, 1fr);
+    gap: clamp(28px, 5vw, 64px);
     align-items: start;
     min-height: calc(100svh - 72px);
-    padding-block: 48px;
+    padding-block: clamp(40px, 5vh, 64px);
     border-bottom: 1px solid var(--line);
   }
 
@@ -1129,7 +1127,7 @@ a {
 
   .home-intro {
     align-self: start;
-    padding-top: clamp(112px, 17vh, 184px);
+    padding-top: clamp(52px, 12vh, 136px);
     padding-bottom: 0;
   }
 
@@ -1139,7 +1137,7 @@ a {
   }
 
   .home-intro h1 {
-    font-size: clamp(76px, 12.5vw, 118px);
+    font-size: clamp(64px, min(11.5vw, 11vh), 118px);
     line-height: 0.72;
   }
 
@@ -1148,7 +1146,7 @@ a {
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 700px), (hover: none) and (max-device-width: 700px) {
   .home-shell {
     width: min(100% - 32px, 1240px);
   }
@@ -1159,13 +1157,22 @@ a {
   }
 
   .home-header nav {
-    gap: 14px;
+    max-width: calc(100% - 54px);
+    gap: clamp(7px, 2.2vw, 12px);
+    overflow-x: auto;
+    scrollbar-width: none;
+    white-space: nowrap;
   }
 
-  .home-header nav a:nth-child(1),
-  .home-header nav a:nth-child(4),
-  .home-header nav a:nth-child(5) {
+  .home-header nav::-webkit-scrollbar {
     display: none;
+  }
+
+  .home-header nav a {
+    display: block;
+    flex: 0 0 auto;
+    font-size: clamp(9px, 2.5vw, 11px);
+    letter-spacing: -0.015em;
   }
 
   .home-wordmark strong {
@@ -1173,12 +1180,29 @@ a {
   }
 
   .home-hero {
-    gap: 64px;
-    padding-block: 54px 72px;
+    grid-template-columns: 1fr;
+    gap: clamp(38px, 7vh, 64px);
+    min-height: auto;
+    padding-block: clamp(38px, 5vh, 54px) clamp(56px, 8vh, 72px);
+  }
+
+  .home-portrait {
+    --mobile-portrait-width: min(100%, 380px, 42svh);
+    max-width: none;
+  }
+
+  .portrait-frame {
+    width: var(--mobile-portrait-width);
+    margin-inline: auto;
+  }
+
+  .home-portrait > p {
+    width: var(--mobile-portrait-width);
+    margin-inline: auto;
   }
 
   .home-intro h1 {
-    font-size: clamp(62px, 19vw, 100px);
+    font-size: clamp(58px, min(19vw, 12vh), 100px);
   }
 
   .home-lead br {
