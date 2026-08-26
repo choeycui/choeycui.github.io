@@ -1,4 +1,4 @@
-# Nothing / @ChoeyCui conversion landing page
+# Οὖτις / @ChoeyCui conversion landing page
 
 Static GitHub Pages-ready conversion landing page for visitors arriving from X. This is **not** the final personal homepage; the homepage is a later product surface.
 
