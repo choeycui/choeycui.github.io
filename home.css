@@ -251,37 +251,6 @@ a {
   font-size: 11px;
 }
 
-.home-thesis {
-  border-block: 1px solid var(--line);
-  background: #ded7ca;
-}
-
-.home-thesis p {
-  display: flex;
-  align-items: baseline;
-  gap: clamp(12px, 2vw, 32px);
-  margin-block: 0;
-  padding-block: 30px;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.home-thesis span {
-  font-family: var(--serif);
-  font-size: clamp(28px, 4.2vw, 62px);
-  font-style: italic;
-}
-
-.home-thesis i {
-  color: var(--accent);
-  font-style: normal;
-}
-
-.home-thesis strong {
-  margin-left: auto;
-  font-size: clamp(15px, 1.5vw, 21px);
-}
-
 .practice-section,
 .connect-section {
   padding-block: 120px;
@@ -511,7 +480,8 @@ a {
 .social-icon {
   position: relative;
   display: grid;
-  width: clamp(70px, 7vw, 92px);
+  width: clamp(58px, 5.2vw, 74px);
+  flex: 0 0 auto;
   aspect-ratio: 1;
   place-items: center;
   border: 1px solid var(--ink);
@@ -519,15 +489,16 @@ a {
   background: transparent;
   color: var(--ink);
   text-decoration: none;
-  transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+  transition: width 220ms ease, background 160ms ease, color 160ms ease, transform 160ms ease;
 }
 
 .social-icon:hover,
 .social-icon:focus-visible {
   z-index: 5;
+  width: clamp(84px, 7.2vw, 98px);
   outline: none;
   background: var(--accent);
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 }
 
 .icon-mark {
@@ -603,16 +574,7 @@ a {
   visibility: visible;
 }
 
-.social-popover img {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: 254px;
-  object-fit: contain;
-  background: white;
-}
-
-.social-popover > span {
+.social-popover-label {
   margin-top: 3px;
   color: #aaa79f;
   font-family: var(--mono);
@@ -628,6 +590,56 @@ a {
   font-size: 17px;
   font-weight: 500;
   line-height: 1.2;
+}
+
+.social-popover-qr {
+  width: 220px;
+  padding: 10px;
+  border-width: 1px;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 8px 8px 0 var(--accent);
+}
+
+.social-popover-qr::after {
+  background: var(--paper);
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.social-popover-qr .social-popover-label {
+  color: var(--muted);
+}
+
+.qr-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid var(--ink);
+  background: #fff;
+}
+
+.qr-frame img {
+  position: absolute;
+  display: block;
+  max-width: none;
+  height: auto;
+}
+
+.qr-frame-instagram img {
+  top: -20%;
+  left: 50%;
+  width: 165%;
+  transform: translateX(-50%);
+}
+
+.qr-frame-xiaohongshu img {
+  top: 0;
+  left: 50%;
+  width: 135%;
+  transform: translateX(-50%);
 }
 
 .social-popover-text {
@@ -1123,17 +1135,6 @@ a {
 
   .home-lead br {
     display: none;
-  }
-
-  .home-thesis p {
-    flex-wrap: wrap;
-    gap: 8px 14px;
-    white-space: normal;
-  }
-
-  .home-thesis strong {
-    width: 100%;
-    margin: 8px 0 0;
   }
 
   .home-section-head {
