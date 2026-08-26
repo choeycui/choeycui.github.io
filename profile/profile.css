@@ -447,9 +447,12 @@
   }
 
   .timeline {
+    --future-length: clamp(42px, 6svh, 68px);
     display: grid;
     height: auto;
     gap: 34px;
+    margin-bottom: clamp(100px, 16svh, 180px);
+    padding-top: clamp(68px, 10svh, 116px);
   }
 
   .timeline-axis {
@@ -477,8 +480,22 @@
       height 260ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
+  .timeline-axis::before {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 50%;
+    width: 9px;
+    height: 9px;
+    border: 2px solid var(--paper);
+    border-radius: 50%;
+    background: var(--ink);
+    content: "";
+    transform: translate(-50%, -50%);
+  }
+
   .timeline-axis i {
-    top: 12px;
+    top: 32px;
     left: 50%;
     padding: 6px 0;
     letter-spacing: -0.2em;
@@ -488,12 +505,25 @@
   .timeline-future {
     top: auto;
     right: auto;
-    bottom: -28px;
+    bottom: calc(var(--future-length) * -1);
     left: 50%;
     width: 0;
-    height: 28px;
+    height: var(--future-length);
     border-top: 0;
     border-left: 1px dashed var(--ink);
+  }
+
+  .timeline-future::after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 9px;
+    height: 9px;
+    border: 2px solid var(--paper);
+    border-radius: 50%;
+    background: var(--ink);
+    content: "";
+    transform: translate(-50%, 50%);
   }
 
   .timeline-entry,
@@ -756,6 +786,11 @@
     column-gap: 0;
     min-height: 42px;
     color: var(--muted);
+  }
+
+  .timeline-mobile-end.endpoint-now {
+    min-height: 0;
+    height: 0;
   }
 
   .timeline-mobile-end time {
