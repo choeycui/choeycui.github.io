@@ -1,8 +1,8 @@
 {
-  "name": "Outisseus — Builder",
+  "name": "Outisseus — Personal profile",
   "short_name": "Outisseus",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#f4f0e8",
-  "theme_color": "#f4f0e8"
+  "background_color": "#f2eee5",
+  "theme_color": "#f2eee5"
 }

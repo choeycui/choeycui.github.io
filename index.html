@@ -1,266 +1,227 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f4f0e8" />
+    <meta name="theme-color" content="#f2eee5" />
     <meta
       name="description"
-      content="Outisseus builds AI agent infrastructure, information systems, open-network experiments, and serialized fiction at @ChoeyCui."
+      content="Outisseus 的个人主页：AI builder、理财顾问、中文写作，以及公开社交入口。"
     />
-    <meta property="og:title" content="Outisseus — Builder profile" />
+    <meta property="og:title" content="Outisseus — Personal profile" />
     <meta
       property="og:description"
-      content="AI agents, infrastructure, information systems, open networks, and writing. Inspect the work in @ChoeyCui's Build Matrix."
+      content="Systems, risk, and stories — several public practices, one personal profile."
     />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="profile" />
     <meta property="og:url" content="https://choeycui.github.io/" />
-    <meta property="og:image" content="https://choeycui.github.io/og.png?v=20260826-4" />
-    <meta property="og:image:secure_url" content="https://choeycui.github.io/og.png?v=20260826-4" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1731" />
-    <meta property="og:image:height" content="909" />
-    <meta property="og:image:alt" content="OUTISSEUS — BUILDING SYSTEMS IN PUBLIC" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Outisseus — Builder profile" />
+    <meta property="og:image" content="https://choeycui.github.io/avatar.jpg" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Outisseus — Personal profile" />
     <meta
       name="twitter:description"
-      content="AI agents, infrastructure, information systems, open networks, and writing."
+      content="AI builder · 理财顾问 · 中文写作"
     />
-    <meta name="twitter:image" content="https://choeycui.github.io/og.png?v=20260826-4" />
-    <meta name="twitter:image:alt" content="OUTISSEUS — BUILDING SYSTEMS IN PUBLIC" />
-    <title>Outisseus — Builder profile</title>
+    <meta name="twitter:image" content="https://choeycui.github.io/avatar.jpg" />
+    <title>Outisseus — Personal profile</title>
     <link rel="manifest" href="./site.webmanifest" />
-    <link rel="stylesheet" href="./styles.css" />
-    <script src="./app.js" defer></script>
+    <link rel="stylesheet" href="./home.css" />
   </head>
-  <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+  <body class="personal-home">
+    <a class="home-skip" href="#main">跳到主要内容</a>
 
-    <header class="site-header" id="top">
-      <a class="wordmark" href="#top" aria-label="Outisseus, home">
-        <span class="wordmark-mark" aria-hidden="true">O</span>
-        <span>Outisseus</span>
+    <header class="home-header">
+      <a class="home-wordmark" href="#top" aria-label="Outisseus personal home">
+        <span aria-hidden="true">O</span>
+        <strong>Outisseus</strong>
       </a>
-      <nav aria-label="Primary navigation">
-        <a href="#profile">Profile</a>
-        <a href="#matrix">Build Matrix</a>
-        <a href="#projects">Projects</a>
-        <a href="#writing">Writing</a>
-        <a href="#about">About</a>
-        <a href="./building.html">Build Log</a>
-        <a class="nav-x" href="https://x.com/ChoeyCui">X ↗</a>
+      <nav aria-label="个人主页导航">
+        <a href="#practices">身份</a>
+        <a href="./builder/">Builder</a>
+        <a href="./insurance/">理财顾问</a>
+        <a href="#writing">写作</a>
+        <a href="#connect">联系</a>
       </nav>
     </header>
 
     <main id="main">
-      <section class="profile-hero shell" id="profile" aria-labelledby="profile-name">
-        <aside class="identity-panel" aria-label="Outisseus profile">
-          <div class="avatar-wrap">
-            <img
-              src="./avatar.jpg"
-              alt="Outisseus"
-              width="180"
-              height="180"
-            />
-            <span class="availability"><i></i> building now</span>
+      <section class="home-hero home-shell" id="top" aria-labelledby="home-title">
+        <div class="home-portrait">
+          <div class="portrait-frame">
+            <img src="./avatar.jpg" alt="Outisseus" width="360" height="360" />
           </div>
-          <p class="profile-handle">@ChoeyCui</p>
-          <h1 id="profile-name">Outisseus</h1>
-          <p class="profile-role">Ex-NIQ data scientist → builder</p>
-          <p class="profile-location">AI agents · infrastructure · information systems · open networks</p>
-          <div class="profile-links">
-            <a class="button primary" href="https://x.com/ChoeyCui">Follow on X ↗</a>
-            <a class="button secondary" href="https://github.com/choeycui">GitHub ↗</a>
-          </div>
-        </aside>
+          <p><span></span> several practices · one person</p>
+        </div>
 
-        <div class="profile-summary">
-          <p class="eyebrow"><span></span> Current profile</p>
-          <h2>
-            I build systems that help agents know more, act better, and show their work.
-          </h2>
-          <p class="profile-deck">
-            My work moves between context infrastructure, capability access,
-            intent and verification, information retrieval, and small applications
-            that make those ideas inspectable. I write fiction alongside it.
+        <div class="home-intro">
+          <p class="home-kicker">Personal profile / 2026</p>
+          <h1 id="home-title">Outisseus</h1>
+          <p class="home-lead">
+            我在不同的问题里做同一件事：<br />
+            让复杂选择更可见、更可验证，也更接近人。
           </p>
-          <div class="profile-status-grid">
-            <div>
-              <span>Live now</span>
-              <strong>Guatian MVP</strong>
-              <a href="https://choeycui.github.io/guatian-mvp/">Open demo ↗</a>
-            </div>
-            <div>
-              <span>Building</span>
-              <strong>personal-context</strong>
-              <a href="https://github.com/choeycui/personal-context">Inspect repo ↗</a>
-            </div>
-            <div>
-              <span>Writing</span>
-              <strong>《天亮前，不要开灯》</strong>
-              <a href="https://peaceful-relish-7e9.notion.site/nolightbeforesunrise">阅读连载 ↗</a>
-            </div>
+          <div class="identity-line" aria-label="公开身份">
+            <span>AI builder</span>
+            <span>理财顾问</span>
+            <span>中文写作</span>
           </div>
-          <div class="profile-actions">
-            <a class="text-arrow" href="#matrix">Explore the full Build Matrix ↓</a>
-            <a class="text-arrow" href="./building.html">Open the build log →</a>
+          <div class="home-actions">
+            <a class="home-button solid" href="#practices">进入我的公开世界 ↓</a>
+            <a class="home-button line" href="https://x.com/ChoeyCui">@ChoeyCui ↗</a>
           </div>
+          <p class="background-note">Background · Ex-NIQ data scientist</p>
         </div>
       </section>
 
-      <section class="thesis-band" aria-label="Builder thesis">
-        <p>
-          <span>What to expect</span>
-          Working demos, architecture, failures, and original theses — with live,
-          WIP, and design status kept visibly separate.
+      <section class="home-thesis" aria-label="个人主页主旨">
+        <p class="home-shell">
+          <span>Systems</span>
+          <i>×</i>
+          <span>Risk</span>
+          <i>×</i>
+          <span>Stories</span>
+          <strong>最终都落回人的选择。</strong>
         </p>
       </section>
 
-      <section class="matrix-section shell" id="matrix" aria-labelledby="matrix-title">
-        <div class="section-heading">
+      <section class="practice-section home-shell" id="practices" aria-labelledby="practices-title">
+        <div class="home-section-head">
           <div>
-            <p class="eyebrow"><span></span> Portfolio as a system</p>
-            <h2 id="matrix-title">Build Matrix</h2>
+            <p class="home-kicker">Three public practices</p>
+            <h2 id="practices-title">这里不是一张单线简历。</h2>
           </div>
           <p>
-            One project can occupy more than one cell. Hover to trace repeated
-            appearances; select a card for status, links, and its current thesis.
+            Builder、理财顾问与写作分别拥有自己的入口。主页只负责说明我是谁，以及你为什么可能想继续往里走。
           </p>
         </div>
 
-        <div class="matrix-legend" aria-label="Matrix legend">
-          <span><i class="status-dot live"></i> Live</span>
-          <span><i class="status-dot building"></i> Building</span>
-          <span><i class="status-dot design"></i> Design</span>
-          <span><i class="status-dot experiment"></i> Experiment</span>
-          <span><i class="status-dot writing"></i> Writing</span>
-        </div>
-
-        <div class="matrix-scroll" tabindex="0" aria-label="Scrollable Build Matrix">
-          <div class="build-matrix" id="build-matrix" role="table" aria-label="Projects by theme and artifact layer">
-            <div class="matrix-corner" role="columnheader">
-              <span>Theme ↓</span>
-              <span>Layer →</span>
+        <div class="practice-grid">
+          <a class="practice-card builder-card" href="./builder/">
+            <div class="practice-topline">
+              <span>01</span>
+              <em>Live profile</em>
             </div>
-            <div class="matrix-column-heading" role="columnheader">Infrastructure</div>
-            <div class="matrix-column-heading" role="columnheader">Applications</div>
-            <div class="matrix-column-heading" role="columnheader">Writing</div>
-          </div>
-        </div>
+            <h3>Builder</h3>
+            <p>AI agents、infrastructure、information systems 与 open networks。</p>
+            <ul>
+              <li>Build Matrix</li>
+              <li>Projects & proof</li>
+              <li>Build log</li>
+            </ul>
+            <strong>进入 Builder 页面 ↗</strong>
+          </a>
 
-        <div class="dependency-map" aria-label="System dependencies">
-          <p class="dependency-label">Selected dependencies</p>
-          <div class="dependency-flow">
-            <button type="button" data-project-jump="personal-context">personal-context</button>
-            <span aria-hidden="true">→</span>
-            <button type="button" data-project-jump="jarvis">Jarvis</button>
-          </div>
-          <div class="dependency-flow">
-            <button type="button" data-project-jump="intentgraph">IntentGraph</button>
-            <span aria-hidden="true">→</span>
-            <span>agent applications</span>
-          </div>
-          <div class="dependency-flow">
-            <button type="button" data-project-jump="detool">DeTool</button>
-            <span aria-hidden="true">→</span>
-            <span>trusted capabilities</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="project-section" id="projects" aria-labelledby="projects-title">
-        <div class="shell">
-          <div class="section-heading inverse">
-            <div>
-              <p class="eyebrow"><span></span> Proof before positioning</p>
-              <h2 id="projects-title">Current projects</h2>
+          <a class="practice-card insurance-card" href="./insurance/">
+            <div class="practice-topline">
+              <span>02</span>
+              <em>Advisory practice</em>
             </div>
-            <p>
-              “Live” means inspectable now. Everything else is labeled at its
-              actual stage — design is not shipped software.
-            </p>
-          </div>
-          <div class="project-list" id="project-list"></div>
-        </div>
-      </section>
+            <h3>理财顾问</h3>
+            <p>围绕香港保险、长期财富规划与家庭风险，把复杂选择讲清楚。</p>
+            <ul>
+              <li>客户工具</li>
+              <li>研究报告</li>
+              <li>个别咨询</li>
+            </ul>
+            <strong>进入顾问页面 ↗</strong>
+          </a>
 
-      <section class="writing-section shell" id="writing" aria-labelledby="writing-title">
-        <div class="writing-number" aria-hidden="true">001</div>
-        <div class="writing-copy">
-          <p class="eyebrow"><span></span> 中文连载</p>
-          <h2 id="writing-title">《天亮前，不要开灯》</h2>
-          <p>
-            气候危机越过临界点后，AI 已成为维持能源、医疗、迁徙与公共信息系统运转的文明操作系统。
-            技术审计员林砚在审查 Mosaic 的事故复盘时，发现不同系统总在以同一种理由延迟公开、延迟接管：环境尚未稳定。
-            随着一组本不该相似的碎片逐渐拼合，他开始追问：当每一次不开灯都有充分理由，人类是否还保留看见真相的权利？
-          </p>
-          <a class="text-link" href="https://peaceful-relish-7e9.notion.site/nolightbeforesunrise">
-            阅读第一章 ↗
+          <a
+            class="practice-card writing-card"
+            id="writing"
+            href="https://peaceful-relish-7e9.notion.site/nolightbeforesunrise"
+          >
+            <div class="practice-topline">
+              <span>03</span>
+              <em>Serializing</em>
+            </div>
+            <h3>写作</h3>
+            <p>中文近未来小说《天亮前，不要开灯》，以及系统、历史与人的选择。</p>
+            <blockquote>“当每一次不开灯都有充分理由，人类是否还保留看见真相的权利？”</blockquote>
+            <strong>阅读第一章 ↗</strong>
           </a>
         </div>
-        <blockquote>
-          “问题不是 AI 什么时候学会了犹豫。问题是人类从什么时候开始，失去了让它停止犹豫的权力。”
-        </blockquote>
       </section>
 
-      <section class="about-section shell" id="about" aria-labelledby="about-title">
-        <div>
-          <p class="eyebrow"><span></span> About</p>
-          <h2 id="about-title">I care about systems that can explain what they know — and what they did.</h2>
-        </div>
-        <div class="about-copy">
-          <p>
-            My background is in data science. My current work sits where AI
-            agents, automation, retrieval, information structure, and open
-            coordination meet.
-          </p>
-          <p>
-            On X, I share real build progress, useful failures, architecture,
-            selective market and open-network observations, and the conversations
-            that sharpen the work.
-          </p>
-          <div class="boundary-note">
-            <strong>Public-work boundary</strong>
-            <span>
-              Public demos use synthetic data and sanitized abstractions. Personal
-              context, client data, credentials, private prompts, and browser
-              profiles remain private.
-            </span>
+      <section class="now-section" aria-labelledby="now-title">
+        <div class="home-shell now-layout">
+          <div class="now-title-wrap">
+            <p class="home-kicker">Current public work</p>
+            <h2 id="now-title">现在可以直接打开的三样东西。</h2>
+          </div>
+          <div class="now-list">
+            <a href="./builder/#matrix">
+              <span>Builder system</span>
+              <strong>Build Matrix</strong>
+              <em>查看项目、状态与依赖关系 ↗</em>
+            </a>
+            <a href="https://choeycui.github.io/hk-dividend-fulfillment-2025/">
+              <span>Advisory work</span>
+              <strong>香港分红险长期结果</strong>
+              <em>查看公开资料研究站 ↗</em>
+            </a>
+            <a href="https://peaceful-relish-7e9.notion.site/nolightbeforesunrise">
+              <span>Writing</span>
+              <strong>《天亮前，不要开灯》</strong>
+              <em>阅读中文连载 ↗</em>
+            </a>
           </div>
         </div>
       </section>
 
-      <section class="follow-cta">
-        <div class="shell">
-          <p>Follow the build, not just the announcement.</p>
-          <h2>Watch the systems move from thesis → prototype → proof.</h2>
+      <section class="connect-section home-shell" id="connect" aria-labelledby="connect-title">
+        <div class="home-section-head connect-head">
           <div>
-            <a class="button light" href="https://x.com/ChoeyCui">Follow on X ↗</a>
-            <a class="button ghost" href="https://github.com/choeycui">Inspect GitHub ↗</a>
+            <p class="home-kicker">Find me elsewhere</p>
+            <h2 id="connect-title">连接到不同侧面。</h2>
           </div>
+          <p>已确认的公开入口可以直接访问；其余位置先保留结构，补充前不会发布猜测的账号或私人联系方式。</p>
+        </div>
+
+        <div class="social-grid">
+          <a href="https://x.com/ChoeyCui" class="social-card is-live">
+            <span>X</span>
+            <strong>@ChoeyCui</strong>
+            <em>Builds · theses · conversations ↗</em>
+          </a>
+          <a href="https://github.com/choeycui" class="social-card is-live">
+            <span>GitHub</span>
+            <strong>choeycui</strong>
+            <em>Repositories · proof-of-work ↗</em>
+          </a>
+          <div class="social-card is-reserved">
+            <span>小红书</span>
+            <strong>入口待补充</strong>
+            <em>Reserved</em>
+          </div>
+          <div class="social-card is-reserved">
+            <span>Instagram</span>
+            <strong>入口待补充</strong>
+            <em>Reserved</em>
+          </div>
+          <div class="social-card is-reserved">
+            <span>Email</span>
+            <strong>公开邮箱待确认</strong>
+            <em>Private by default</em>
+          </div>
+        </div>
+      </section>
+
+      <section class="home-boundary">
+        <div class="home-shell">
+          <p class="home-kicker">Public boundary</p>
+          <h2>公开作品，不等于公开全部生活。</h2>
+          <p>
+            Outisseus 是公开昵称。网站不会展示真实个人 context、客户资料、凭证、私密草稿或未经确认的联系方式；公开案例只使用公开来源、合成数据或脱敏抽象。
+          </p>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer shell">
-      <p>© 2026 Outisseus · @ChoeyCui</p>
-      <p>AI agents · information systems · open networks · writing</p>
-      <a href="#top">Back to top ↑</a>
+    <footer class="home-footer home-shell">
+      <p>© 2026 Outisseus</p>
+      <p>Personal profile · Builder · Insurance · Writing</p>
+      <a href="#top">回到顶部 ↑</a>
     </footer>
-
-    <dialog class="project-dialog" id="project-dialog" aria-labelledby="dialog-title">
-      <button class="dialog-close" type="button" aria-label="Close project detail">×</button>
-      <p class="dialog-kicker" id="dialog-kicker"></p>
-      <h2 id="dialog-title"></h2>
-      <p class="dialog-thesis" id="dialog-thesis"></p>
-      <dl>
-        <div><dt>Status</dt><dd id="dialog-status"></dd></div>
-        <div><dt>Latest update</dt><dd id="dialog-updated"></dd></div>
-        <div><dt>Tags</dt><dd id="dialog-tags"></dd></div>
-        <div><dt>System role</dt><dd id="dialog-role"></dd></div>
-      </dl>
-      <div class="dialog-links" id="dialog-links"></div>
-    </dialog>
   </body>
 </html>

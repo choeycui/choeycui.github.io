@@ -1,24 +1,26 @@
-# Reserved site structure
+# Site structure
 
-This file reserves the long-term information architecture without developing the future personal homepage now.
+The root is the general personal profile. Public identities have separate pages so the technical X brand and the advisory practice remain legible without being mixed together.
 
 | Route | Role | Current state |
 | --- | --- | --- |
-| `/` | Profile Home: Outisseus, current focus, selected proof, primary paths | **Reserved for later**; current landing temporarily occupies root |
-| `/build/` | X conversion landing page and Build Matrix | Current page; move here when Profile Home is built |
-| `/build-log/` | Dated progress, decisions, constraints, and failures | Structural draft exists as `building.html` |
+| `/` | Personal Profile: Outisseus, public identities, selected work, social links | Live |
+| `/builder/` | Technical builder profile, X conversion landing page and Build Matrix | Live |
+| `/builder/building.html` | Dated progress, decisions, constraints, and failures | Live |
+| `/insurance/` | Financial-adviser profile, client tools and research reports | Live |
 | `/projects/` | Inspectable project index and detail pages | Reserved |
 | `/writing/` | Serialized fiction index and public chapters | Reserved |
 | `/about/` | Short background and public/private boundary | Reserved |
 
 ## Navigation contract
 
-The eventual Profile Home will expose: Build Matrix / Projects / Writing / About / GitHub / X. The Build Matrix remains the main conversion object; the root page should not become a CV dump.
+The Profile Home exposes Builder / Financial Adviser / Writing / Social. The Builder page exposes Build Matrix / Projects / Writing / About / GitHub / X. The root page should not become a CV dump.
 
 ## Content ownership
 
 - Profile Home answers who Outisseus is and where to go.
-- The landing page answers why an AI/agent/open-network builder should follow.
+- The Builder page answers why an AI/agent/open-network builder should follow.
+- The Adviser page makes the role explicit and separates client tools from public research reports.
 - Project pages hold proof, architecture, screenshots, benchmarks, and status.
 - Build Log holds progress and failures.
 - Writing holds public chapters only; private outlines and spoilers stay elsewhere.
