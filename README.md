@@ -9,7 +9,8 @@ Static GitHub Pages personal site with separate public identities and privacy bo
 - `/builder/building.html` is the public build log.
 - `/insurance/` is a single-screen adviser portal for Client Tools / Research / AI.
 - `/insurance/tools/` is the stateless, approval-gated online toolkit.
-- `/insurance/reports/` contains the public research gallery; `/insurance/ai/` reserves the expert-system interface.
+- `/insurance/reports/` contains the public research gallery; the long-term dividend report and its evidence pages live under `/insurance/reports/hk-dividend-fulfillment-2025/`.
+- `/insurance/ai/` reserves the expert-system interface.
 - The published Chinese novel remains on its existing Notion Site and is presented within the Builder profile.
 
 ## Local preview
