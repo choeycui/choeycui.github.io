@@ -4,200 +4,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#edf0e9" />
-    <meta
-      name="description"
-      content="Outisseus 的理财顾问页面：香港保险、长期财富规划、客户工具与公开研究报告。"
-    />
+    <meta name="description" content="Outisseus 的理财顾问工作入口：客户工具、研究报告与 AI 专家系统。" />
     <meta property="og:title" content="Outisseus — 理财顾问" />
-    <meta
-      property="og:description"
-      content="把复杂产品、长期现金流与家庭风险，变成可以理解、比较和核对的选择。"
-    />
+    <meta property="og:description" content="用工具、研究与系统，把复杂产品和长期现金流变成可以核对的选择。" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://choeycui.github.io/insurance/" />
     <meta property="og:image" content="https://choeycui.github.io/avatar.jpg" />
     <meta name="twitter:card" content="summary" />
     <title>Outisseus — 理财顾问</title>
-    <link rel="stylesheet" href="../home.css" />
+    <link rel="stylesheet" href="./insurance.css" />
   </head>
-  <body class="advisory-page">
-    <a class="home-skip" href="#main">跳到主要内容</a>
-
-    <header class="home-header">
-      <a class="home-wordmark" href="../" aria-label="返回 Outisseus 个人主页">
-        <span aria-hidden="true">O</span>
-        <strong>Outisseus</strong>
+  <body>
+    <a class="skip" href="#main">跳到主要内容</a>
+    <header>
+      <a class="wordmark" href="../" aria-label="返回 Outisseus 个人主页">
+        <span aria-hidden="true">O</span><strong>Outisseus</strong>
       </a>
-      <nav aria-label="理财顾问页面导航">
-        <a href="../">个人主页</a>
-        <a href="#tools">客户工具</a>
-        <a href="#reports">研究报告</a>
-        <a href="#boundary">服务边界</a>
-        <a href="../builder/">Builder</a>
-      </nav>
+      <p>FINANCIAL ADVISER / HONG KONG</p>
+      <a class="back" href="../">个人主页 ←</a>
     </header>
-
     <main id="main">
-      <section class="advisory-hero home-shell" aria-labelledby="advisory-title">
-        <aside class="advisory-rail">
-          <span class="rail-index" aria-hidden="true">02</span>
-          <p>
-            这是我的理财顾问身份页面。公开展示工具、研究报告与工作方法；客户资料与个别建议始终留在私下。
-          </p>
-        </aside>
-
-        <div>
-          <p class="home-kicker">Financial adviser / Hong Kong</p>
-          <h1 id="advisory-title">理财<br /><em>顾问。</em></h1>
-          <p class="advisory-lead">
-            我帮助客户把复杂产品、长期现金流与家庭风险，变成可以理解、比较和核对的选择。
-            重点不是推一份答案，而是把判断所依赖的事实、假设与取舍摆到桌面上。
-          </p>
-          <div class="home-actions">
-            <a class="home-button solid" href="#tools">查看客户工具 ↓</a>
-            <a class="home-button line" href="#reports">阅读研究报告 ↓</a>
-          </div>
+      <section class="identity" aria-labelledby="page-title">
+        <p class="kicker">Advisory work / evidence before answers</p>
+        <div class="identity-line">
+          <h1 id="page-title">理财顾问。</h1>
+          <p>用工具、研究与系统，把复杂产品、长期现金流与家庭风险，变成可以理解、比较和核对的选择。</p>
         </div>
       </section>
-
-      <section class="advisory-trust" aria-label="顾问工作原则">
-        <div class="home-shell">
-          <div>
-            <span>Role</span>
-            <strong>理财顾问</strong>
-          </div>
-          <div>
-            <span>Method</span>
-            <strong>证据、比较与长期视角</strong>
-          </div>
-          <div>
-            <span>Boundary</span>
-            <strong>公开材料不含客户隐私</strong>
-          </div>
-        </div>
-      </section>
-
-      <section class="advisory-section home-shell" id="tools" aria-labelledby="tools-title">
-        <div class="advisory-section-head">
-          <div>
-            <p class="home-kicker">Client-facing tools</p>
-            <h2 id="tools-title">客户工具</h2>
-          </div>
-          <p>
-            这里放真正可操作的内部工具，而不是研究页面。费率工具采用账号与算法口令的轻量访问方式，不建立账号数据库；涉及客户资料的工具不会部署到公开网站。
-          </p>
-        </div>
-
-        <div class="advisory-grid tool-grid">
-          <a class="advisory-card is-link" href="./tools/cim3/">
-            <div class="card-meta"><span>Controlled</span><span>Approval required</span></div>
-            <h3>CIM3 费率查询器</h3>
-            <p>
-              内置 5,448 条费率，按 ANB、性别、吸烟状况、缴费年期与基础保额查询。账号与对应口令通过验证后，查询器直接在网页中加载。
-            </p>
-            <strong>请求访问 ↗</strong>
-          </a>
-
-          <article class="advisory-card">
-            <div class="card-meta"><span>Building</span><span>Private tool</span></div>
-            <h3>客户方案现金流对比器</h3>
-            <p>
-              对齐缴费、保证与非保证价值、关键年龄节点与多个方案的现金流。个别客户版本不会公开。
-            </p>
-            <strong>整理中</strong>
-          </article>
-
-          <article class="advisory-card">
-            <div class="card-meta"><span>Design</span><span>Adviser tool</span></div>
-            <h3>危疾产品条款对照</h3>
-            <p>
-              用同一结构比较多次赔付、早期赔付、分红、身故保障与定义差异，并保留原始条款位置。
-            </p>
-            <strong>设计中</strong>
-          </article>
-        </div>
-      </section>
-
-      <section class="advisory-section home-shell" id="reports" aria-labelledby="reports-title">
-        <div class="advisory-section-head">
-          <div>
-            <p class="home-kicker">Research reports</p>
-            <h2 id="reports-title">研究报告</h2>
-          </div>
-          <p>
-            报告不仅给出数字，也保留公开来源、观察口径、不能推出的结论与更新时间。后续专题会沿用同一标准逐步加入这里。
-          </p>
-        </div>
-
-        <div class="report-gallery">
-          <a class="report-item" href="https://choeycui.github.io/hk-dividend-fulfillment-2025/">
-            <div class="report-cover report-cover-primary">
-              <span>REPORT 01 / 2026.08</span>
-              <h3>香港分红险：<br />看长期结果，<br />不只看单年实现率</h3>
-              <em>OUTISSEUS / ADVISORY</em>
-            </div>
-            <div class="report-caption">
-              <strong>五家公司 2025 分红表现横向比较</strong>
-              <p>从单年分红实现率走向总现金价值、长期实际 IRR 与累计回报。</p>
-              <em>阅读报告 ↗</em>
-            </div>
-          </a>
-
-          <a class="report-item" href="https://choeycui.github.io/hk-dividend-fulfillment-2025/data/">
-            <div class="report-cover report-cover-data">
-              <span>DATA NOTE / 2026.08</span>
-              <h3>20+ 年<br />保单样本与<br />长期实际 IRR</h3>
-              <em>EVIDENCE TABLES</em>
-            </div>
-            <div class="report-caption">
-              <strong>长期历史样本与证据表</strong>
-              <p>区分实际平均总 IRR、产品系列、观察年限，以及“有数据”和“未有公布”。</p>
-              <em>查看数据底稿 ↗</em>
-            </div>
-          </a>
-
-          <a class="report-item" href="https://choeycui.github.io/hk-dividend-fulfillment-2025/methodology/">
-            <div class="report-cover report-cover-method">
-              <span>METHOD NOTE / 2026.08</span>
-              <h3>GL16、10+<br />与长期推断<br />边界</h3>
-              <em>READ BEFORE COMPARING</em>
-            </div>
-            <div class="report-caption">
-              <strong>指标口径与不能推出的结论</strong>
-              <p>为什么 10+ 分组不能直接推算第 20 或第 30 保单年度。</p>
-              <em>阅读方法说明 ↗</em>
-            </div>
-          </a>
-        </div>
-
-        <a class="report-source-link" href="https://choeycui.github.io/hk-dividend-fulfillment-2025/sources/">
-          查看全部官方资料与证据索引 ↗
+      <nav class="portal-grid" aria-label="理财顾问工作入口">
+        <a class="portal portal-tools" href="./tools/">
+          <span class="portal-number">01</span>
+          <div><p class="portal-label">Client toolkit</p><h2>客户工具</h2><p>CIM3 费率查询与优惠计算，一组口令进入统一 Toolkit。</p></div>
+          <strong>打开工具箱 ↗</strong>
         </a>
-      </section>
-
-      <section class="advisory-note" id="boundary">
-        <div class="home-shell">
-          <h2>服务发生在关系里，资料公开在边界内。</h2>
-          <div>
-            <p>
-              网站内容用于展示我的顾问工作、公开研究与解释工具，不构成针对任何个人的理财、保险或投资建议。个别建议必须建立在需求、现金流、风险承受能力、家庭安排与适用文件之上。
-            </p>
-            <p>
-              公开联系入口集中在个人主页；真实客户资料、个别方案、录音与业务凭证仍然保持私密。
-            </p>
-            <div class="home-actions">
-              <a class="home-button solid" href="../#connect">查看公开联系入口 ↗</a>
-              <a class="home-button line" href="../">返回个人主页 ←</a>
-            </div>
-          </div>
-        </div>
-      </section>
+        <a class="portal portal-reports" href="./reports/">
+          <span class="portal-number">02</span>
+          <div><p class="portal-label">Research library</p><h2>研究报告</h2><p>长期回报、公开数据与方法边界，保留来源与更新时间。</p></div>
+          <strong>进入资料库 ↗</strong>
+        </a>
+        <a class="portal portal-ai" href="./ai/">
+          <span class="portal-number">03</span>
+          <div><p class="portal-label">Expert system / reserved</p><h2>AI</h2><p>面向顾问知识库的专家系统入口，预留 Mac mini / OpenClaw 接口。</p></div>
+          <strong>查看系统关系 ↗</strong>
+        </a>
+      </nav>
     </main>
-
-    <footer class="home-footer home-shell">
+    <footer>
       <p>© 2026 Outisseus</p>
-      <p>理财顾问 · 客户工具 · 研究报告</p>
-      <a href="../">个人主页 ←</a>
+      <p>公开内容不构成针对个人的理财、保险或投资建议。</p>
     </footer>
   </body>
 </html>

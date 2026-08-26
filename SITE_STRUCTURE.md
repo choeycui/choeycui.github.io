@@ -7,7 +7,10 @@ The root is the general personal profile. Public identities have separate pages 
 | `/` | Personal Profile: Outisseus, public identities, selected work, social links | Live |
 | `/builder/` | Technical builder profile, X conversion landing page and Build Matrix | Live |
 | `/builder/building.html` | Dated progress, decisions, constraints, and failures | Live |
-| `/insurance/` | Financial-adviser profile, client tools and research reports | Live |
+| `/insurance/` | Single-screen financial-adviser portal: Client Tools / Research / AI | Live |
+| `/insurance/tools/` | Approval-gated online toolkit: CIM3 and promotion calculator | Live |
+| `/insurance/reports/` | Public adviser research gallery and evidence index | Live |
+| `/insurance/ai/` | Reserved expert-system architecture and dependencies | Reserved |
 | `/projects/` | Inspectable project index and detail pages | Reserved |
 | `/builder/#writing` | Serialized fiction entry within the Builder identity | Live |
 | `/about/` | Short background and public/private boundary | Reserved |
@@ -20,7 +23,7 @@ The Profile Home exposes Builder / Financial Adviser / Life / Social. The Builde
 
 - Profile Home answers who Outisseus is and where to go.
 - The Builder page answers why an AI/agent/open-network builder should follow.
-- The Adviser page makes the role explicit and separates client tools from public research reports.
+- The Adviser page makes the role explicit and routes to tools, research, and the reserved AI system without scrolling.
 - Project pages hold proof, architecture, screenshots, benchmarks, and status.
 - Build Log holds progress and failures.
 - Writing belongs to the Builder profile; public chapters stay on the reader-facing Notion Site while private outlines and spoilers remain elsewhere.

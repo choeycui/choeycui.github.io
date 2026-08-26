@@ -1,0 +1,18 @@
+{
+  "v": 1,
+  "tool": "adviser-toolkit",
+  "publicKey": {
+    "kty": "EC",
+    "x": "p8JiNSJMgSJtfp6HjRZoxrnbgRsbaoAXytZ11Y-NojM",
+    "y": "ybUTSh4XaiDkFcOON3kmFeKIAzboAwmLqQTW_dPYF30",
+    "crv": "P-256",
+    "ext": true,
+    "key_ops": [
+      "verify"
+    ]
+  },
+  "payloadSha256": {
+    "cim3": "59d01ae5c4e1d40a4f7d315580da6e839c288353a59a00c11264c0f3f565d1a5",
+    "promo": "7889a988b3a0a9b686d1999a416ab2bd1440c1658ff43d0c2445e7a944a69130"
+  }
+}
