@@ -4,11 +4,11 @@ Static GitHub Pages personal site with separate public identities and privacy bo
 
 ## Purpose
 
-- `/` is the general personal profile.
-- `/builder/` is the X conversion and proof-of-work profile.
+- `/` is the general personal profile: Builder / Financial Adviser / Life.
+- `/builder/` is the X conversion and proof-of-work profile, including writing.
 - `/builder/building.html` is the public build log.
 - `/insurance/` presents the financial-adviser identity, client-facing tools, and public research reports.
-- The published Chinese novel remains on its existing Notion Site.
+- The published Chinese novel remains on its existing Notion Site and is presented within the Builder profile.
 
 ## Local preview
 

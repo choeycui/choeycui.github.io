@@ -9,12 +9,12 @@ The root is the general personal profile. Public identities have separate pages 
 | `/builder/building.html` | Dated progress, decisions, constraints, and failures | Live |
 | `/insurance/` | Financial-adviser profile, client tools and research reports | Live |
 | `/projects/` | Inspectable project index and detail pages | Reserved |
-| `/writing/` | Serialized fiction index and public chapters | Reserved |
+| `/builder/#writing` | Serialized fiction entry within the Builder identity | Live |
 | `/about/` | Short background and public/private boundary | Reserved |
 
 ## Navigation contract
 
-The Profile Home exposes Builder / Financial Adviser / Writing / Social. The Builder page exposes Build Matrix / Projects / Writing / About / GitHub / X. The root page should not become a CV dump.
+The Profile Home exposes Builder / Financial Adviser / Life / Social. The Builder page exposes Build Matrix / Projects / Writing / About / GitHub / X. The root page should not become a CV dump.
 
 ## Content ownership
 
@@ -23,4 +23,4 @@ The Profile Home exposes Builder / Financial Adviser / Writing / Social. The Bui
 - The Adviser page makes the role explicit and separates client tools from public research reports.
 - Project pages hold proof, architecture, screenshots, benchmarks, and status.
 - Build Log holds progress and failures.
-- Writing holds public chapters only; private outlines and spoilers stay elsewhere.
+- Writing belongs to the Builder profile; public chapters stay on the reader-facing Notion Site while private outlines and spoilers remain elsewhere.
