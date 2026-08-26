@@ -18,7 +18,7 @@
     <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
     <link rel="stylesheet" href="../home.css?v=20260827-4" />
-    <link rel="stylesheet" href="./profile.css?v=20260827-4" />
+    <link rel="stylesheet" href="./profile.css?v=20260827-5" />
   </head>
   <body class="profile-page">
     <a class="home-skip" href="#main">Skip to profile</a>
@@ -38,22 +38,12 @@
 
     <main id="main" class="profile-main">
       <article class="profile-card" aria-labelledby="profile-title">
-        <header class="profile-card-head">
-          <div>
-            <p>PUBLIC PROFILE / 2026</p>
-            <h1 id="profile-title">A working timeline.</h1>
-          </div>
-          <div class="profile-card-note">
-            <strong>OUTISSEUS</strong>
-            <span>Data → Systems → Advisory</span>
-          </div>
-        </header>
-
-        <section class="timeline" aria-label="Expanded life, work, education and hiking timeline">
+        <h1 id="profile-title" class="sr-only">Outisseus profile timeline</h1>
+        <section class="timeline" aria-label="Life, work, education and hiking timeline">
           <span class="timeline-axis" aria-hidden="true"><i>//</i></span>
 
           <article class="timeline-entry timeline-point entry-birth above align-start">
-            <time datetime="1996">1996</time>
+            <span class="timeline-date date-down date-label-right"><time datetime="1996">1996</time></span>
             <span class="timeline-mark" aria-hidden="true"></span>
             <div class="timeline-copy">
               <p>BEGINNING</p>
@@ -63,7 +53,8 @@
           </article>
 
           <article class="timeline-entry timeline-period entry-tongji below">
-            <time datetime="2014-09/2018-07">2014.09—2018.07</time>
+            <span class="timeline-date timeline-date-start date-up"><time datetime="2014-09">2014.09</time></span>
+            <span class="timeline-date timeline-date-end date-down date-label-left"><time datetime="2018-07">2018.07</time></span>
             <span class="timeline-mark" aria-hidden="true"></span>
             <div class="timeline-copy">
               <p>EDUCATION · B.MGMT · MIS</p>
@@ -73,7 +64,8 @@
           </article>
 
           <article class="timeline-entry timeline-period entry-niq above far align-start">
-            <time datetime="2019-05/2025-05">2019.05—2025.05</time>
+            <span class="timeline-date timeline-date-start date-up date-label-right"><time datetime="2019-05">2019.05</time></span>
+            <span class="timeline-date timeline-date-end date-down date-label-left"><time datetime="2025-05">2025.05</time></span>
             <span class="timeline-mark" aria-hidden="true"></span>
             <div class="timeline-copy">
               <p>SENIOR DATA SCIENTIST</p>
@@ -83,7 +75,7 @@
           </article>
 
           <article class="timeline-entry timeline-point entry-yubeng below">
-            <time datetime="2020-12">2020.12</time>
+            <span class="timeline-date date-down"><time datetime="2020-12">2020.12</time></span>
             <span class="timeline-mark" aria-hidden="true"></span>
             <div class="timeline-copy">
               <p>HIKE</p>
@@ -93,7 +85,7 @@
           </article>
 
           <article class="timeline-entry timeline-point entry-kula above">
-            <time datetime="2021-12">2021.12</time>
+            <span class="timeline-date date-up"><time datetime="2021-12">2021.12</time></span>
             <span class="timeline-mark" aria-hidden="true"></span>
             <div class="timeline-copy">
               <p>HIKE</p>
@@ -103,7 +95,7 @@
           </article>
 
           <article class="timeline-entry timeline-point entry-gongga below">
-            <time datetime="2023-05">2023.05</time>
+            <span class="timeline-date date-down"><time datetime="2023-05">2023.05</time></span>
             <span class="timeline-mark" aria-hidden="true"></span>
             <div class="timeline-copy">
               <p>HIKE</p>
@@ -112,8 +104,8 @@
             </div>
           </article>
 
-          <article class="timeline-entry timeline-point entry-wusun above">
-            <time datetime="2024-07">2024.07</time>
+          <article class="timeline-entry timeline-point entry-wusun above align-end">
+            <span class="timeline-date date-up date-label-left"><time datetime="2024-07">2024.07</time></span>
             <span class="timeline-mark" aria-hidden="true"></span>
             <div class="timeline-copy">
               <p>HIKE</p>
@@ -122,8 +114,9 @@
             </div>
           </article>
 
-          <article class="timeline-entry timeline-period entry-prudential below align-end">
-            <time datetime="2025-11">2025.11—NOW</time>
+          <article class="timeline-entry timeline-period entry-prudential below align-start">
+            <span class="timeline-date timeline-date-start date-up date-label-right"><time datetime="2025-11">2025.11</time></span>
+            <span class="timeline-date timeline-date-end date-down date-label-left"><time datetime="2026">NOW</time></span>
             <span class="timeline-mark" aria-hidden="true"></span>
             <div class="timeline-copy">
               <p>WEALTH CONSULTANT / UNIT MANAGER · <a href="../builder/">BUILDER ↗</a></p>
@@ -133,7 +126,7 @@
           </article>
 
           <article class="timeline-entry timeline-point entry-kailash above align-end">
-            <time datetime="2026-06">2026.06</time>
+            <span class="timeline-date date-up date-label-left"><time datetime="2026-06">2026.06</time></span>
             <span class="timeline-mark" aria-hidden="true"></span>
             <div class="timeline-copy">
               <p>KORA</p>
