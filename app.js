@@ -7,7 +7,7 @@ const projects = [
     updated: "2026-08-26",
     tags: ["AI & Agents", "Information & Retrieval", "Infrastructure"],
     role: "Canonical context substrate; Jarvis depends on it.",
-    repo: null,
+    repo: "https://github.com/choeycui/personal-context",
     demo: null,
     featured: true,
     cells: [
@@ -23,7 +23,7 @@ const projects = [
     updated: "2026-08-26",
     tags: ["AI & Agents", "Web3 & Open Networks", "Infrastructure"],
     role: "Trust and access layer between agents and capabilities.",
-    repo: null,
+    repo: "https://github.com/choeycui/detool",
     demo: null,
     featured: true,
     cells: [
@@ -65,7 +65,7 @@ const projects = [
     updated: "2026-08-26",
     tags: ["AI & Agents", "Infrastructure", "Reliability"],
     role: "Reliability boundary for browser and agent execution.",
-    repo: null,
+    repo: "https://github.com/choeycui/session-health-probe",
     demo: null,
     featured: true,
     cells: [["ai", "infrastructure"]],
@@ -149,7 +149,7 @@ const projects = [
     updated: "2026-08-26",
     tags: ["AI & Agents", "Creative & Writing", "Writing", "AI × Novel"],
     role: "Humanization and writing lane; Yu remains the author and rights holder.",
-    repo: null,
+    repo: "https://github.com/choeycui/wugang-calibration-bureau",
     demo: null,
     featured: true,
     cells: [
@@ -281,4 +281,3 @@ projectList.querySelectorAll("[data-open-project]").forEach((button) => {
     if (project) openProject(project);
   });
 });
-
