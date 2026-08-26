@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#edf0e9" />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <meta name="description" content="CIM3 费率查询器批准访问页。" />
+    <title>CIM3 费率查询器 — 请求访问</title>
+    <link rel="stylesheet" href="./gate.css" />
+    <script src="./gate.js" defer></script>
+  </head>
+  <body>
+    <header class="gate-header">
+      <a href="../../" aria-label="返回理财顾问页面"><span>O</span><strong>Outisseus</strong></a>
+      <p>CIM3 / PRIVATE TOOL</p>
+      <a href="../../">返回顾问页 ←</a>
+    </header>
+
+    <main>
+      <section class="gate-shell" id="access-panel" aria-labelledby="gate-title">
+        <div class="gate-index" aria-hidden="true">01</div>
+        <div class="gate-copy">
+          <p class="gate-kicker">Approval-gated adviser tool</p>
+          <h1 id="gate-title">CIM3<br /><em>费率查询器</em></h1>
+          <p class="gate-lead">
+            输入管理员为你生成的账号和口令。两段字符串经网页验证得到 <code>approved</code> 后，查询器会直接在当前网页中加载。
+          </p>
+
+          <form id="unlock-form">
+            <label for="account-name">账号</label>
+            <input
+              id="account-name"
+              name="account-name"
+              type="text"
+              autocomplete="username"
+              spellcheck="false"
+              required
+            />
+
+            <label for="approval-code">口令</label>
+            <textarea
+              id="approval-code"
+              name="approval-code"
+              rows="4"
+              autocomplete="off"
+              spellcheck="false"
+              required
+              aria-describedby="gate-status"
+              placeholder="粘贴管理员返回的口令"
+            ></textarea>
+            <button class="submit-approval" type="submit">登录并打开 →</button>
+            <p class="gate-status" id="gate-status" role="status" aria-live="polite">
+              本站不保存账号表或登录记录；口令只与对应账号匹配。
+            </p>
+          </form>
+
+          <div class="gate-boundary">
+            <strong>访问边界</strong>
+            <p>
+              查询结果仅作内部说明与方案准备，实际费率与投保金额必须以正式建议书和系统为准。批准访问不等于对外传播许可。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-stage" id="tool-stage" hidden aria-label="CIM3 费率查询器">
+        <div class="tool-bar">
+          <div><span></span><strong>CIM3 费率查询器 · APPROVED</strong></div>
+          <button id="lock-tool" type="button">锁定并退出</button>
+        </div>
+        <iframe
+          id="tool-frame"
+          title="CIM3 费率查询器"
+          sandbox="allow-scripts allow-forms allow-modals allow-downloads"
+        ></iframe>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 Outisseus</p>
+      <p>Account + passcode → approved</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "v": 1,
+  "tool": "cim3",
+  "publicKey": {
+    "kty": "EC",
+    "x": "Y3bUoi0IRS9M7FoW1ijv3p2o8RNJNXn6aVnJmUVuhH0",
+    "y": "zN9w5ic7kv5SV4Wi8qQKuWZXO7wUJ46i_zoIT_2vhBE",
+    "crv": "P-256",
+    "ext": true,
+    "key_ops": [
+      "verify"
+    ]
+  },
+  "sourceSha256": "59d01ae5c4e1d40a4f7d315580da6e839c288353a59a00c11264c0f3f565d1a5"
+}
