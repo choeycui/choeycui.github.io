@@ -30,6 +30,11 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+.personal-home {
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
 a {
   color: inherit;
 }
@@ -128,21 +133,11 @@ a {
 .portrait-frame {
   position: relative;
   width: min(100%, 420px, calc((100svh - 180px) * 0.88));
-  aspect-ratio: 0.88;
-  padding: 16px 16px 64px;
+  aspect-ratio: 1;
+  padding: 16px;
   background: #ded7ca;
   box-shadow: 16px 18px 0 #191916;
   transform: rotate(-1.25deg);
-}
-
-.portrait-frame::after {
-  position: absolute;
-  right: 18px;
-  bottom: 20px;
-  content: "OUTISSEUS / 2026";
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.08em;
 }
 
 .portrait-frame img {
@@ -154,23 +149,6 @@ a {
   filter: saturate(0.88) contrast(1.04);
 }
 
-.home-portrait > p {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 32px 0 0;
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.home-portrait > p span {
-  width: 30px;
-  height: 1px;
-  background: var(--accent);
-}
 
 .home-kicker {
   margin: 0 0 18px;
@@ -1088,14 +1066,14 @@ a {
   }
 }
 
-@media (min-width: 701px) and (max-aspect-ratio: 9 / 10) {
+@media (min-width: 701px) and (max-aspect-ratio: 1 / 1) {
   .home-hero {
     position: relative;
-    grid-template-columns: minmax(250px, clamp(270px, 38vw, 420px)) minmax(0, 1fr);
-    gap: clamp(28px, 5vw, 64px);
+    grid-template-columns: 1fr;
+    gap: clamp(30px, 4.5vh, 48px);
     align-items: start;
     min-height: calc(100svh - 72px);
-    padding-block: clamp(40px, 5vh, 64px);
+    padding-block: clamp(36px, 4.5vh, 56px);
     border-bottom: 1px solid var(--line);
   }
 
@@ -1111,23 +1089,21 @@ a {
   }
 
   .home-portrait {
+    --stacked-portrait-width: min(100%, 420px, 40svh);
     align-self: start;
     max-width: none;
   }
 
   .portrait-frame {
-    width: 100%;
-    max-width: 380px;
+    width: var(--stacked-portrait-width);
+    max-width: none;
     margin-inline: auto;
-  }
-
-  .home-portrait > p {
-    margin-top: 22px;
   }
 
   .home-intro {
     align-self: start;
-    padding-top: clamp(52px, 12vh, 136px);
+    width: min(100%, 900px);
+    padding-top: 0;
     padding-bottom: 0;
   }
 
@@ -1137,12 +1113,12 @@ a {
   }
 
   .home-intro h1 {
-    font-size: clamp(64px, min(11.5vw, 11vh), 118px);
-    line-height: 0.72;
+    font-size: clamp(68px, min(13vw, 11vh), 128px);
+    line-height: 0.76;
   }
 
   .identity-line {
-    margin-top: clamp(42px, 7vw, 68px);
+    margin-top: clamp(28px, 4vh, 46px);
   }
 }
 
@@ -1175,6 +1151,36 @@ a {
     letter-spacing: -0.015em;
   }
 
+  .social-icon:nth-child(2) .social-popover {
+    left: 0;
+    transform: translate(0, 8px);
+  }
+
+  .social-icon:nth-child(2):hover .social-popover,
+  .social-icon:nth-child(2):focus-visible .social-popover {
+    transform: translate(0, 0);
+  }
+
+  .social-icon:nth-child(2) .social-popover::after {
+    left: 30px;
+  }
+
+  .social-icon:last-child .social-popover {
+    right: 0;
+    left: auto;
+    transform: translate(0, 8px);
+  }
+
+  .social-icon:last-child:hover .social-popover,
+  .social-icon:last-child:focus-visible .social-popover {
+    transform: translate(0, 0);
+  }
+
+  .social-icon:last-child .social-popover::after {
+    right: 30px;
+    left: auto;
+  }
+
   .home-wordmark strong {
     display: none;
   }
@@ -1182,7 +1188,7 @@ a {
   .home-hero {
     grid-template-columns: 1fr;
     gap: clamp(28px, 4.5vh, 42px);
-    min-height: auto;
+    min-height: calc(100svh - 62px);
     padding-block: clamp(34px, 4.5vh, 48px) clamp(30px, 4vh, 44px);
   }
 
@@ -1193,12 +1199,6 @@ a {
 
   .portrait-frame {
     width: var(--mobile-portrait-width);
-    margin-inline: auto;
-  }
-
-  .home-portrait > p {
-    width: var(--mobile-portrait-width);
-    margin-top: 20px;
     margin-inline: auto;
   }
 
