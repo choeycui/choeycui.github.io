@@ -1095,7 +1095,7 @@ a {
     position: relative;
     grid-template-columns: minmax(250px, 0.86fr) minmax(0, 1.14fr);
     gap: clamp(32px, 5vw, 56px);
-    align-items: end;
+    align-items: start;
     min-height: calc(100svh - 72px);
     padding-block: 48px;
     border-bottom: 1px solid var(--line);
@@ -1113,7 +1113,7 @@ a {
   }
 
   .home-portrait {
-    align-self: end;
+    align-self: start;
     max-width: none;
   }
 
@@ -1128,8 +1128,9 @@ a {
   }
 
   .home-intro {
-    align-self: end;
-    padding-bottom: 48px;
+    align-self: start;
+    padding-top: clamp(112px, 17vh, 184px);
+    padding-bottom: 0;
   }
 
   .home-kicker {
