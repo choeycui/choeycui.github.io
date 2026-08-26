@@ -144,11 +144,11 @@ const projects = [
   {
     id: "novel",
     name: "《天亮前，不要开灯》",
-    thesis: "一部关于 Mosaic、城市系统与人的选择的中文近未来连载小说。",
+    thesis: "当 AI 成为文明操作系统，谁来决定人类何时有权看见真相？",
     status: "writing",
     updated: "2026-08-26",
     tags: ["Creative & Writing", "Writing", "中文连载"],
-    role: "面向读者的中文连载入口。© 2026 Outisseus，保留所有权利。",
+    role: "技术审计员林砚追查一组跨系统重复出现的“延迟可见性”叙事。",
     repo: null,
     demo: "https://peaceful-relish-7e9.notion.site/nolightbeforesunrise",
     demoLabel: "阅读中文连载 ↗",
