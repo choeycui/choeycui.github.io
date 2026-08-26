@@ -5,6 +5,7 @@ The root is the general personal profile. Public identities have separate pages 
 | Route | Role | Current state |
 | --- | --- | --- |
 | `/` | Personal Profile: Outisseus, public identities, selected work, social links | Live |
+| `/profile/` | Concise public CV card with a responsive work-and-education timeline | Live |
 | `/builder/` | Technical builder profile, X conversion landing page and Build Matrix | Live |
 | `/builder/building.html` | Dated progress, decisions, constraints, and failures | Live |
 | `/insurance/` | Single-screen financial-adviser portal: Client Tools / Research / AI | Live |
@@ -24,11 +25,12 @@ The root is the general personal profile. Public identities have separate pages 
 
 ## Navigation contract
 
-The Profile Home exposes Builder / Financial Adviser / Life / Social. The Builder page exposes Build Matrix / Projects / Writing / About / GitHub / X. The root page should not become a CV dump.
+The Profile Home exposes Builder / Wealth Consultant / Life / Social. The Builder page exposes Build Matrix / Projects / Writing / About / GitHub / X. The root page stays concise; the separate Profile route carries the short timeline.
 
 ## Content ownership
 
 - Profile Home answers who Outisseus is and where to go.
+- Profile carries only the verified public career and education timeline, without publishing the legal name or job-search metadata.
 - The Builder page answers why an AI/agent/open-network builder should follow.
 - The Adviser page makes the role explicit and routes to tools, research, and the reserved AI system without scrolling.
 - Research gallery cards navigate to dedicated report routes; report content is never appended beneath the gallery.

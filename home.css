@@ -216,6 +216,7 @@ a {
 .home-actions {
   display: flex;
   flex-wrap: wrap;
+  gap: 28px;
   margin-top: 30px;
 }
 
@@ -238,13 +239,6 @@ a {
 .home-text-link:focus-visible {
   color: var(--accent);
   letter-spacing: 0.1em;
-}
-
-.background-note {
-  margin: 22px 0 0;
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 11px;
 }
 
 .practice-section,
@@ -1093,6 +1087,63 @@ a {
 
   .advisory-hero {
     min-height: auto;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 960px) {
+  .home-hero {
+    position: relative;
+    grid-template-columns: minmax(250px, 0.86fr) minmax(0, 1.14fr);
+    gap: clamp(32px, 5vw, 56px);
+    align-items: end;
+    min-height: calc(100svh - 72px);
+    padding-block: 48px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .home-hero::after {
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+    color: var(--muted);
+    content: "ISSUE 01 / PERSONAL PROFILE";
+    font-family: var(--mono);
+    font-size: 8px;
+    letter-spacing: 0.12em;
+  }
+
+  .home-portrait {
+    align-self: end;
+    max-width: none;
+  }
+
+  .portrait-frame {
+    width: 100%;
+    max-width: 380px;
+    margin-inline: auto;
+  }
+
+  .home-portrait > p {
+    margin-top: 22px;
+  }
+
+  .home-intro {
+    align-self: end;
+    padding-bottom: 48px;
+  }
+
+  .home-kicker {
+    padding-top: 12px;
+    border-top: 4px solid var(--accent);
+  }
+
+  .home-intro h1 {
+    font-size: clamp(76px, 12.5vw, 118px);
+    line-height: 0.72;
+  }
+
+  .identity-line {
+    margin-top: clamp(42px, 7vw, 68px);
   }
 }
 

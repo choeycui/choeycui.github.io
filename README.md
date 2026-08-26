@@ -4,7 +4,8 @@ Static GitHub Pages personal site with separate public identities and privacy bo
 
 ## Purpose
 
-- `/` is the general personal profile: Builder / Financial Adviser / Life.
+- `/` is the general personal profile: Builder / Wealth Consultant / Life.
+- `/profile/` is the short public CV card, using a horizontal desktop timeline and vertical mobile timeline.
 - `/builder/` is the X conversion and proof-of-work profile, including writing.
 - `/builder/building.html` is the public build log.
 - `/insurance/` is a single-screen adviser portal for Client Tools / Research / AI.
