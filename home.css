@@ -201,6 +201,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 9px;
+  margin-top: clamp(44px, 5vw, 70px);
 }
 
 .identity-line span {
@@ -294,6 +295,11 @@ a {
   margin-bottom: 48px;
 }
 
+.practice-section .home-section-head,
+.connect-head {
+  display: block;
+}
+
 .home-section-head h2,
 .now-title-wrap h2,
 .home-boundary h2 {
@@ -323,7 +329,7 @@ a {
 .practice-card {
   position: relative;
   display: flex;
-  min-height: 520px;
+  min-height: 430px;
   flex-direction: column;
   padding: 28px;
   border-right: 1px solid var(--ink);
@@ -387,8 +393,9 @@ a {
 .practice-card h3 {
   margin: 54px 0 24px;
   font-family: var(--serif);
-  font-size: clamp(45px, 5vw, 72px);
+  font-size: clamp(40px, 4.5vw, 66px);
   font-weight: 500;
+  line-height: 0.95;
   letter-spacing: -0.05em;
 }
 
@@ -435,7 +442,7 @@ a {
 
 .now-layout {
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
+  grid-template-columns: 0.92fr 1.08fr;
   gap: clamp(60px, 8vw, 150px);
 }
 
