@@ -71,20 +71,22 @@
     });
 
     const currentBounds = current.getBoundingClientRect();
-    const currentAnchor = currentBounds.top + Math.min(currentBounds.height * 0.42, 56);
     const endpoint = endpointFor(current);
     timeline.querySelectorAll(".timeline-mobile-end").forEach((item) => {
       item.classList.toggle("is-current-end", item === endpoint);
     });
-    const endpointBounds = endpoint?.getBoundingClientRect();
-    const segmentStart = currentAnchor - timelineBounds.top;
-    const segmentEnd = endpointBounds
-      ? endpointBounds.top + 4 - timelineBounds.top
-      : segmentStart + Math.min(currentBounds.height * 0.44, 54);
-    const top = Math.max(0, Math.min(segmentStart, segmentEnd));
-    const height = Math.max(14, Math.abs(segmentEnd - segmentStart));
-    timeline.style.setProperty("--highlight-top", `${(top / timelineBounds.height) * 100}%`);
-    timeline.style.setProperty("--highlight-height", `${(height / timelineBounds.height) * 100}%`);
+    if (endpoint) {
+      const endpointBounds = endpoint.getBoundingClientRect();
+      const segmentStart = currentBounds.top + 4 - timelineBounds.top;
+      const segmentEnd = endpointBounds.top + 4 - timelineBounds.top;
+      const top = Math.max(0, Math.min(segmentStart, segmentEnd));
+      const height = Math.max(0, Math.abs(segmentEnd - segmentStart));
+      timeline.style.setProperty("--highlight-top", `${(top / timelineBounds.height) * 100}%`);
+      timeline.style.setProperty("--highlight-height", `${(height / timelineBounds.height) * 100}%`);
+    } else {
+      timeline.style.setProperty("--highlight-top", "0%");
+      timeline.style.setProperty("--highlight-height", "0%");
+    }
   };
 
   const scheduleUpdate = () => {
