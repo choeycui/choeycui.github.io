@@ -852,6 +852,14 @@ a {
   line-height: 1.7;
 }
 
+.writing-copy > .copyright-note:not(.eyebrow) {
+  margin-top: 22px;
+  color: #565a55;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+}
+
 .text-link {
   font-weight: 750;
   text-underline-offset: 5px;

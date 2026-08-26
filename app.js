@@ -143,19 +143,18 @@ const projects = [
   },
   {
     id: "novel",
-    name: "Serialized Novel",
-    thesis: "Original serialized fiction with an AI-assisted drafting and editorial process.",
+    name: "《天亮前，不要开灯》",
+    thesis: "一部关于 Mosaic、城市系统与人的选择的中文近未来连载小说。",
     status: "writing",
     updated: "2026-08-26",
-    tags: ["AI & Agents", "Creative & Writing", "Writing", "AI × Novel"],
-    role: "Humanization and writing lane; Outisseus remains the author and rights holder.",
-    repo: "https://github.com/choeycui/wugang-calibration-bureau",
-    demo: null,
+    tags: ["Creative & Writing", "Writing", "中文连载"],
+    role: "面向读者的中文连载入口。© 2026 Outisseus，保留所有权利。",
+    repo: null,
+    demo: "https://peaceful-relish-7e9.notion.site/nolightbeforesunrise",
+    demoLabel: "阅读中文连载 ↗",
+    actionLabel: "阅读 ↗",
     featured: true,
-    cells: [
-      ["ai", "writing"],
-      ["creative", "writing"],
-    ],
+    cells: [["creative", "writing"]],
   },
 ];
 
@@ -226,7 +225,7 @@ function openProject(project) {
   const links = document.querySelector("#dialog-links");
   links.replaceChildren();
 
-  if (project.demo) links.append(makeDialogLink("Open live demo ↗", project.demo));
+  if (project.demo) links.append(makeDialogLink(project.demoLabel || "Open live demo ↗", project.demo));
   if (project.repo) links.append(makeDialogLink("Inspect repository ↗", project.repo));
   if (!project.demo && !project.repo) {
     const pending = document.createElement("span");
@@ -264,7 +263,7 @@ featured.forEach((project, index) => {
   const row = document.createElement("article");
   row.className = "project-row";
   const action = project.demo
-    ? `<a href="${project.demo}">Open ↗</a>`
+    ? `<a href="${project.demo}">${project.actionLabel || "Open ↗"}</a>`
     : `<button type="button" data-open-project="${project.id}">Details →</button>`;
   row.innerHTML = `
     <span class="index">${String(index + 1).padStart(2, "0")}</span>
