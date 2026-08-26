@@ -500,54 +500,153 @@ a {
   margin-bottom: 38px;
 }
 
-.social-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  border-top: 1px solid var(--line);
-  border-left: 1px solid var(--line);
-}
-
-.social-card {
+.social-icons {
   display: flex;
-  min-height: 190px;
-  flex-direction: column;
-  padding: 20px;
-  border-right: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  text-decoration: none;
+  flex-wrap: wrap;
+  gap: clamp(12px, 2vw, 22px);
+  align-items: center;
+  padding-top: 8px;
 }
 
-.social-card span,
-.social-card em {
-  color: var(--muted);
+.social-icon {
+  position: relative;
+  display: grid;
+  width: clamp(70px, 7vw, 92px);
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  text-decoration: none;
+  transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.social-icon:hover,
+.social-icon:focus-visible {
+  z-index: 5;
+  outline: none;
+  background: var(--accent);
+  transform: translateY(-4px);
+}
+
+.icon-mark {
+  display: grid;
+  width: 38%;
+  place-items: center;
+}
+
+.icon-mark svg {
+  display: block;
+  width: 100%;
+  overflow: visible;
+  fill: currentColor;
+  stroke: none;
+}
+
+.icon-mark svg rect,
+.icon-mark svg circle,
+.icon-mark svg path:not(:only-child) {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+
+.icon-mark svg .icon-dot {
+  fill: currentColor;
+  stroke: none;
+}
+
+.red-mark {
+  width: auto;
   font-family: var(--mono);
-  font-size: 10px;
-  font-style: normal;
-  letter-spacing: 0.06em;
+  font-size: clamp(12px, 1.5vw, 17px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.social-popover {
+  position: absolute;
+  z-index: 10;
+  bottom: calc(100% + 16px);
+  left: 50%;
+  display: grid;
+  width: 224px;
+  gap: 7px;
+  padding: 12px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  box-shadow: 8px 8px 0 var(--accent);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 8px);
+  transition: opacity 150ms ease, transform 150ms ease, visibility 150ms ease;
+  visibility: hidden;
+}
+
+.social-popover::after {
+  position: absolute;
+  top: 100%;
+  left: calc(50% - 7px);
+  width: 14px;
+  height: 14px;
+  background: var(--ink);
+  content: "";
+  transform: translateY(-7px) rotate(45deg);
+}
+
+.social-icon:hover .social-popover,
+.social-icon:focus-visible .social-popover {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  visibility: visible;
+}
+
+.social-popover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 254px;
+  object-fit: contain;
+  background: white;
+}
+
+.social-popover > span {
+  margin-top: 3px;
+  color: #aaa79f;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.social-card strong {
-  margin: 35px 0 10px;
+.social-popover strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
   font-family: var(--serif);
-  font-size: 22px;
+  font-size: 17px;
   font-weight: 500;
+  line-height: 1.2;
 }
 
-.social-card em {
-  margin-top: auto;
-  text-transform: none;
+.social-popover-text {
+  width: min(310px, calc(100vw - 32px));
+  padding: 18px;
 }
 
-.social-card.is-live:hover,
-.social-card.is-live:focus-visible {
-  background: var(--accent);
-  color: var(--ink);
+.social-icon:first-child .social-popover {
+  left: 0;
+  transform: translate(0, 8px);
 }
 
-.social-card.is-reserved {
-  background: rgba(0, 0, 0, 0.025);
-  color: #77746c;
+.social-icon:first-child:hover .social-popover,
+.social-icon:first-child:focus-visible .social-popover {
+  transform: translate(0, 0);
+}
+
+.social-icon:first-child .social-popover::after {
+  left: 30px;
 }
 
 .home-boundary {
