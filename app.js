@@ -148,7 +148,7 @@ const projects = [
     status: "writing",
     updated: "2026-08-26",
     tags: ["AI & Agents", "Creative & Writing", "Writing", "AI × Novel"],
-    role: "Humanization and writing lane; Yu remains the author and rights holder.",
+    role: "Humanization and writing lane; Οὖτις remains the author and rights holder.",
     repo: "https://github.com/choeycui/wugang-calibration-bureau",
     demo: null,
     featured: true,
