@@ -41,10 +41,20 @@
   position: absolute;
   z-index: 0;
   top: 50%;
-  right: 0;
+  right: 4%;
   left: 0;
   height: 1px;
   background: var(--ink);
+}
+
+.timeline-future {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  right: 0;
+  left: 96%;
+  border-top: 1px dashed var(--ink);
+  opacity: 0.58;
 }
 
 .timeline-axis i {
@@ -63,11 +73,10 @@
 .timeline-entry {
   --copy-x: -50%;
   position: absolute;
-  z-index: 1;
+  z-index: auto;
   top: 0;
   height: 100%;
-  opacity: 0.72;
-  transition: opacity 180ms ease;
+  pointer-events: none;
 }
 
 .timeline-point {
@@ -112,11 +121,11 @@
 
 .entry-prudential {
   --start: 86%;
-  --end: 100%;
+  --end: 96%;
 }
 
 .entry-kailash {
-  --at: 98%;
+  --at: 94%;
 }
 
 .timeline-date {
@@ -126,6 +135,8 @@
   left: 0;
   width: 0;
   height: 0;
+  opacity: 0.72;
+  transition: opacity 180ms ease;
 }
 
 .timeline-date::before,
@@ -193,6 +204,8 @@
   z-index: 2;
   top: 50%;
   display: block;
+  opacity: 0.72;
+  transition: background-color 180ms ease, height 180ms ease, opacity 180ms ease;
 }
 
 .timeline-point .timeline-mark {
@@ -209,9 +222,20 @@
 
 .timeline-copy {
   position: absolute;
+  z-index: 3;
   left: 50%;
   width: clamp(140px, 13vw, 198px);
-  transition: color 180ms ease, transform 180ms ease;
+  opacity: 0.72;
+  pointer-events: auto;
+  transition: color 180ms ease, opacity 180ms ease, transform 180ms ease;
+}
+
+.timeline-period {
+  --copy-x: 0%;
+}
+
+.timeline-period .timeline-copy {
+  left: 0;
 }
 
 .align-start {
@@ -289,38 +313,79 @@
   font-size: 0.95em;
 }
 
-.timeline-entry:hover,
-.timeline-entry:focus-within {
-  z-index: 8;
+.timeline-entry:has(.timeline-copy:hover) .timeline-copy,
+.timeline-entry:focus-within .timeline-copy,
+.timeline-entry:has(.timeline-copy:hover) .timeline-date,
+.timeline-entry:focus-within .timeline-date,
+.timeline-entry:has(.timeline-copy:hover) .timeline-mark,
+.timeline-entry:focus-within .timeline-mark {
   opacity: 1;
 }
 
-.timeline:has(.timeline-entry:hover) .timeline-entry:not(:hover),
-.timeline:has(.timeline-entry:focus-within) .timeline-entry:not(:focus-within) {
-  opacity: 0.34;
+.timeline:has(.timeline-copy:hover) .timeline-entry:not(:has(.timeline-copy:hover)) > .timeline-copy,
+.timeline:has(.timeline-copy:hover) .timeline-entry:not(:has(.timeline-copy:hover)) > .timeline-date,
+.timeline:has(.timeline-copy:hover) .timeline-entry:not(:has(.timeline-copy:hover)) > .timeline-mark,
+.timeline:has(.timeline-entry:focus-within) .timeline-entry:not(:focus-within) > .timeline-copy,
+.timeline:has(.timeline-entry:focus-within) .timeline-entry:not(:focus-within) > .timeline-date,
+.timeline:has(.timeline-entry:focus-within) .timeline-entry:not(:focus-within) > .timeline-mark {
+  opacity: 0.24;
 }
 
-.timeline-entry:hover .timeline-copy,
+.timeline-entry:has(.timeline-copy:hover) .timeline-copy,
 .timeline-entry:focus-within .timeline-copy {
+  z-index: 8;
   color: var(--accent);
 }
 
-.timeline-entry.above:hover .timeline-copy,
+.timeline-entry:has(.timeline-copy:hover) .timeline-date,
+.timeline-entry:focus-within .timeline-date {
+  z-index: 7;
+}
+
+.timeline-entry:has(.timeline-copy:hover) .timeline-date::before,
+.timeline-entry:has(.timeline-copy:hover) .timeline-date::after,
+.timeline-entry:focus-within .timeline-date::before,
+.timeline-entry:focus-within .timeline-date::after,
+.timeline-entry:has(.timeline-copy:hover) .timeline-mark,
+.timeline-entry:focus-within .timeline-mark,
+.timeline-period:has(.timeline-copy:hover) .timeline-mark::before,
+.timeline-period:has(.timeline-copy:hover) .timeline-mark::after,
+.timeline-period:focus-within .timeline-mark::before,
+.timeline-period:focus-within .timeline-mark::after {
+  background: var(--accent);
+}
+
+.timeline-entry:has(.timeline-copy:hover) .timeline-mark,
+.timeline-entry:focus-within .timeline-mark {
+  z-index: 3;
+}
+
+.timeline-entry:has(.timeline-copy:hover) .timeline-date time,
+.timeline-entry:focus-within .timeline-date time {
+  color: var(--accent);
+}
+
+.timeline-period:has(.timeline-copy:hover) .timeline-mark,
+.timeline-period:focus-within .timeline-mark {
+  height: 5px;
+}
+
+.timeline-entry.above:has(.timeline-copy:hover) .timeline-copy,
 .timeline-entry.above:focus-within .timeline-copy {
   transform: translate(var(--copy-x), calc(-100% - 54px));
 }
 
-.timeline-entry.below:hover .timeline-copy,
+.timeline-entry.below:has(.timeline-copy:hover) .timeline-copy,
 .timeline-entry.below:focus-within .timeline-copy {
   transform: translate(var(--copy-x), 54px);
 }
 
-.timeline-entry.above.far:hover .timeline-copy,
+.timeline-entry.above.far:has(.timeline-copy:hover) .timeline-copy,
 .timeline-entry.above.far:focus-within .timeline-copy {
   transform: translate(var(--copy-x), calc(-100% - 138px));
 }
 
-.timeline-entry.below.far:hover .timeline-copy,
+.timeline-entry.below.far:has(.timeline-copy:hover) .timeline-copy,
 .timeline-entry.below.far:focus-within .timeline-copy {
   transform: translate(var(--copy-x), 138px);
 }
@@ -406,6 +471,17 @@
     transform: translate(-50%, 0) rotate(90deg);
   }
 
+  .timeline-future {
+    top: auto;
+    right: auto;
+    bottom: -28px;
+    left: 114px;
+    width: 0;
+    height: 28px;
+    border-top: 0;
+    border-left: 1px dashed var(--ink);
+  }
+
   .timeline-entry,
   .timeline-point,
   .timeline-period {
@@ -419,7 +495,6 @@
     width: auto;
     min-height: 96px;
     height: auto;
-    opacity: 0.7;
   }
 
   .timeline-date,
@@ -543,15 +618,15 @@
     font-size: 10px;
   }
 
-  .timeline-entry:hover .timeline-copy,
+  .timeline-entry:has(.timeline-copy:hover) .timeline-copy,
   .timeline-entry:focus-within .timeline-copy,
-  .timeline-entry.above:hover .timeline-copy,
+  .timeline-entry.above:has(.timeline-copy:hover) .timeline-copy,
   .timeline-entry.above:focus-within .timeline-copy,
-  .timeline-entry.below:hover .timeline-copy,
+  .timeline-entry.below:has(.timeline-copy:hover) .timeline-copy,
   .timeline-entry.below:focus-within .timeline-copy,
-  .timeline-entry.above.far:hover .timeline-copy,
+  .timeline-entry.above.far:has(.timeline-copy:hover) .timeline-copy,
   .timeline-entry.above.far:focus-within .timeline-copy,
-  .timeline-entry.below.far:hover .timeline-copy,
+  .timeline-entry.below.far:has(.timeline-copy:hover) .timeline-copy,
   .timeline-entry.below.far:focus-within .timeline-copy {
     transform: translateX(5px);
   }
@@ -568,6 +643,10 @@
   }
 
   .timeline-axis {
+    left: 98px;
+  }
+
+  .timeline-future {
     left: 98px;
   }
 
