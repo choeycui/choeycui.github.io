@@ -4,7 +4,7 @@ This file reserves the long-term information architecture without developing the
 
 | Route | Role | Current state |
 | --- | --- | --- |
-| `/` | Profile Home: Οὖτις, current focus, selected proof, primary paths | **Reserved for later**; current landing temporarily occupies root |
+| `/` | Profile Home: Outisseus, current focus, selected proof, primary paths | **Reserved for later**; current landing temporarily occupies root |
 | `/build/` | X conversion landing page and Build Matrix | Current page; move here when Profile Home is built |
 | `/build-log/` | Dated progress, decisions, constraints, and failures | Structural draft exists as `building.html` |
 | `/projects/` | Inspectable project index and detail pages | Reserved |
@@ -17,7 +17,7 @@ The eventual Profile Home will expose: Build Matrix / Projects / Writing / About
 
 ## Content ownership
 
-- Profile Home answers who Οὖτις is and where to go.
+- Profile Home answers who Outisseus is and where to go.
 - The landing page answers why an AI/agent/open-network builder should follow.
 - Project pages hold proof, architecture, screenshots, benchmarks, and status.
 - Build Log holds progress and failures.
