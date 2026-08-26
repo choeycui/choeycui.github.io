@@ -1,0 +1,9 @@
+{
+  "name": "Yu Cui — Builder",
+  "short_name": "Yu Cui",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4f0e8",
+  "theme_color": "#f4f0e8"
+}
+

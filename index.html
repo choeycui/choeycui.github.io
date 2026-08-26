@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f0e8" />
+    <meta
+      name="description"
+      content="Yu Cui builds AI agent infrastructure, information systems, open-network experiments, and serialized fiction."
+    />
+    <meta property="og:title" content="Yu Cui — Builder profile" />
+    <meta
+      property="og:description"
+      content="AI agents, infrastructure, information systems, open networks, and writing. Inspect the work in Yu's Build Matrix."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Yu Cui — Builder profile" />
+    <meta
+      name="twitter:description"
+      content="AI agents, infrastructure, information systems, open networks, and writing."
+    />
+    <meta name="twitter:image" content="./og.png" />
+    <title>Yu Cui — Profile</title>
+    <link rel="manifest" href="./site.webmanifest" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="top">
+      <a class="wordmark" href="#top" aria-label="Yu Cui, home">
+        <span class="wordmark-mark" aria-hidden="true">YC</span>
+        <span>Yu Cui</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#profile">Profile</a>
+        <a href="#matrix">Build Matrix</a>
+        <a href="#projects">Projects</a>
+        <a href="#writing">Writing</a>
+        <a href="#about">About</a>
+        <a href="./building.html">Build Log</a>
+        <a class="nav-x" href="https://x.com/ChoeyCui">X ↗</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="profile-hero shell" id="profile" aria-labelledby="profile-name">
+        <aside class="identity-panel" aria-label="Yu Cui profile">
+          <div class="avatar-wrap">
+            <img
+              src="https://avatars.githubusercontent.com/u/52060363?v=4"
+              alt="Yu Cui"
+              width="180"
+              height="180"
+              referrerpolicy="no-referrer"
+            />
+            <span class="availability"><i></i> building now</span>
+          </div>
+          <p class="profile-handle">@ChoeyCui</p>
+          <h1 id="profile-name">Yu Cui</h1>
+          <p class="profile-role">Ex-NIQ data scientist → builder</p>
+          <p class="profile-location">AI agents · infrastructure · information systems · open networks</p>
+          <div class="profile-links">
+            <a class="button primary" href="https://x.com/ChoeyCui">Follow on X ↗</a>
+            <a class="button secondary" href="https://github.com/choeycui">GitHub ↗</a>
+          </div>
+        </aside>
+
+        <div class="profile-summary">
+          <p class="eyebrow"><span></span> Current profile</p>
+          <h2>
+            I build systems that help agents know more, act better, and show their work.
+          </h2>
+          <p class="profile-deck">
+            My work moves between context infrastructure, capability access,
+            intent and verification, information retrieval, and small applications
+            that make those ideas inspectable. I write fiction alongside it.
+          </p>
+          <div class="profile-status-grid">
+            <div>
+              <span>Live now</span>
+              <strong>Guatian MVP</strong>
+              <a href="https://choeycui.github.io/guatian-mvp/">Open demo ↗</a>
+            </div>
+            <div>
+              <span>Building</span>
+              <strong>personal-context</strong>
+              <a href="#matrix">See its system role ↓</a>
+            </div>
+            <div>
+              <span>Writing</span>
+              <strong>Chapter 001</strong>
+              <a href="#writing">Read the premise ↓</a>
+            </div>
+          </div>
+          <div class="profile-actions">
+            <a class="text-arrow" href="#matrix">Explore the full Build Matrix ↓</a>
+            <a class="text-arrow" href="./building.html">Open the build log →</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="thesis-band" aria-label="Builder thesis">
+        <p>
+          <span>What to expect</span>
+          Working demos, architecture, failures, and original theses — with live,
+          WIP, and design status kept visibly separate.
+        </p>
+      </section>
+
+      <section class="matrix-section shell" id="matrix" aria-labelledby="matrix-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span></span> Portfolio as a system</p>
+            <h2 id="matrix-title">Build Matrix</h2>
+          </div>
+          <p>
+            One project can occupy more than one cell. Hover to trace repeated
+            appearances; select a card for status, links, and its current thesis.
+          </p>
+        </div>
+
+        <div class="matrix-legend" aria-label="Matrix legend">
+          <span><i class="status-dot live"></i> Live</span>
+          <span><i class="status-dot building"></i> Building</span>
+          <span><i class="status-dot design"></i> Design</span>
+          <span><i class="status-dot experiment"></i> Experiment</span>
+          <span><i class="status-dot writing"></i> Writing</span>
+        </div>
+
+        <div class="matrix-scroll" tabindex="0" aria-label="Scrollable Build Matrix">
+          <div class="build-matrix" id="build-matrix" role="table" aria-label="Projects by theme and artifact layer">
+            <div class="matrix-corner" role="columnheader">
+              <span>Theme ↓</span>
+              <span>Layer →</span>
+            </div>
+            <div class="matrix-column-heading" role="columnheader">Infrastructure</div>
+            <div class="matrix-column-heading" role="columnheader">Applications</div>
+            <div class="matrix-column-heading" role="columnheader">Writing</div>
+          </div>
+        </div>
+
+        <div class="dependency-map" aria-label="System dependencies">
+          <p class="dependency-label">Selected dependencies</p>
+          <div class="dependency-flow">
+            <button type="button" data-project-jump="personal-context">personal-context</button>
+            <span aria-hidden="true">→</span>
+            <button type="button" data-project-jump="jarvis">Jarvis</button>
+          </div>
+          <div class="dependency-flow">
+            <button type="button" data-project-jump="intentgraph">IntentGraph</button>
+            <span aria-hidden="true">→</span>
+            <span>agent applications</span>
+          </div>
+          <div class="dependency-flow">
+            <button type="button" data-project-jump="detool">DeTool</button>
+            <span aria-hidden="true">→</span>
+            <span>trusted capabilities</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-section" id="projects" aria-labelledby="projects-title">
+        <div class="shell">
+          <div class="section-heading inverse">
+            <div>
+              <p class="eyebrow"><span></span> Proof before positioning</p>
+              <h2 id="projects-title">Current projects</h2>
+            </div>
+            <p>
+              “Live” means inspectable now. Everything else is labeled at its
+              actual stage — design is not shipped software.
+            </p>
+          </div>
+          <div class="project-list" id="project-list"></div>
+        </div>
+      </section>
+
+      <section class="writing-section shell" id="writing" aria-labelledby="writing-title">
+        <div class="writing-number" aria-hidden="true">001</div>
+        <div class="writing-copy">
+          <p class="eyebrow"><span></span> Writing lane</p>
+          <h2 id="writing-title">Building systems, then leaving room for fiction.</h2>
+          <p>
+            The serialized novel is an original Yu Cui work developed with an
+            AI-assisted drafting and editorial process. Public chapters are
+            inspectable; outlines, future turns, and private drafts stay private.
+          </p>
+          <a class="text-link is-pending" href="#writing" aria-disabled="true">
+            Chapter 001 — repository preparing
+          </a>
+        </div>
+        <blockquote>
+          “The city did not lose its memories all at once. It lost the confidence
+          to tell one memory from another.”
+        </blockquote>
+      </section>
+
+      <section class="about-section shell" id="about" aria-labelledby="about-title">
+        <div>
+          <p class="eyebrow"><span></span> About</p>
+          <h2 id="about-title">I care about systems that can explain what they know — and what they did.</h2>
+        </div>
+        <div class="about-copy">
+          <p>
+            My background is in data science. My current work sits where AI
+            agents, automation, retrieval, information structure, and open
+            coordination meet.
+          </p>
+          <p>
+            On X, I share real build progress, useful failures, architecture,
+            selective market and open-network observations, and the conversations
+            that sharpen the work.
+          </p>
+          <div class="boundary-note">
+            <strong>Public-work boundary</strong>
+            <span>
+              Public demos use synthetic data and sanitized abstractions. Personal
+              context, client data, credentials, private prompts, and browser
+              profiles remain private.
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section class="follow-cta">
+        <div class="shell">
+          <p>Follow the build, not just the announcement.</p>
+          <h2>Watch the systems move from thesis → prototype → proof.</h2>
+          <div>
+            <a class="button light" href="https://x.com/ChoeyCui">Follow on X ↗</a>
+            <a class="button ghost" href="https://github.com/choeycui">Inspect GitHub ↗</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer shell">
+      <p>© 2026 Yu Cui</p>
+      <p>AI agents · information systems · open networks · writing</p>
+      <a href="#top">Back to top ↑</a>
+    </footer>
+
+    <dialog class="project-dialog" id="project-dialog" aria-labelledby="dialog-title">
+      <button class="dialog-close" type="button" aria-label="Close project detail">×</button>
+      <p class="dialog-kicker" id="dialog-kicker"></p>
+      <h2 id="dialog-title"></h2>
+      <p class="dialog-thesis" id="dialog-thesis"></p>
+      <dl>
+        <div><dt>Status</dt><dd id="dialog-status"></dd></div>
+        <div><dt>Latest update</dt><dd id="dialog-updated"></dd></div>
+        <div><dt>Tags</dt><dd id="dialog-tags"></dd></div>
+        <div><dt>System role</dt><dd id="dialog-role"></dd></div>
+      </dl>
+      <div class="dialog-links" id="dialog-links"></div>
+    </dialog>
+  </body>
+</html>
