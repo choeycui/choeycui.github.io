@@ -18,7 +18,7 @@
     <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
     <link rel="stylesheet" href="../home.css?v=20260827-4" />
-    <link rel="stylesheet" href="./profile.css?v=20260827-2" />
+    <link rel="stylesheet" href="./profile.css?v=20260827-3" />
   </head>
   <body class="profile-page">
     <a class="home-skip" href="#main">Skip to profile</a>
@@ -50,7 +50,12 @@
         </header>
 
         <section class="timeline" aria-label="Expanded life, work, education and hiking timeline">
-          <span class="timeline-axis" aria-hidden="true"><i>//</i></span>
+          <svg class="timeline-axis" viewBox="0 0 1000 650" preserveAspectRatio="none" aria-hidden="true">
+            <path class="timeline-base" vector-effect="non-scaling-stroke" d="M20 320 C75 270 100 175 130 145 C210 105 300 140 350 220 C365 245 375 270 380 280 C405 335 420 365 470 470 C520 520 570 520 650 500 C710 450 770 350 820 265 C835 235 848 195 860 180 C900 125 970 130 1000 190" />
+            <path class="timeline-range" vector-effect="non-scaling-stroke" d="M130 145 C210 105 300 140 350 220" />
+            <path class="timeline-range" vector-effect="non-scaling-stroke" d="M380 280 C405 335 420 365 470 470 C520 520 570 520 650 500 C710 450 770 350 820 265" />
+            <path class="timeline-range" vector-effect="non-scaling-stroke" d="M860 180 C900 125 970 130 1000 190" />
+          </svg>
 
           <article class="timeline-entry timeline-point entry-birth above align-start">
             <time datetime="1996">1996</time>
@@ -102,7 +107,7 @@
             </div>
           </article>
 
-          <article class="timeline-entry timeline-point entry-gongga below far">
+          <article class="timeline-entry timeline-point entry-gongga below">
             <time datetime="2023-05">2023.05</time>
             <span class="timeline-mark" aria-hidden="true"></span>
             <div class="timeline-copy">
