@@ -6,28 +6,28 @@
     <meta name="theme-color" content="#f2eee5" />
     <meta
       name="description"
-      content="Outisseus — builder, wealth consultant, and life."
+      content="Outisseus — building, serving, and living."
     />
     <meta property="og:title" content="Outisseus — Personal profile" />
     <meta
       property="og:description"
-      content="Systems, risk, and life — several public practices, one personal profile."
+      content="Building, serving, and living — several public practices, one personal profile."
     />
     <meta property="og:type" content="profile" />
-    <meta property="og:url" content="https://choeycui.github.io/" />
-    <meta property="og:image" content="https://choeycui.github.io/avatar.png?v=20260826-1" />
+    <meta property="og:url" content="https://outisseus.github.io/" />
+    <meta property="og:image" content="https://outisseus.github.io/avatar.png?v=20260826-1" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Outisseus — Personal profile" />
     <meta
       name="twitter:description"
-      content="Builder · Wealth consultant · Life"
+      content="Building · Serving · Living"
     />
-    <meta name="twitter:image" content="https://choeycui.github.io/avatar.png?v=20260826-1" />
+    <meta name="twitter:image" content="https://outisseus.github.io/avatar.png?v=20260826-1" />
     <title>Outisseus — Personal profile</title>
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
     <link rel="manifest" href="./site.webmanifest" />
-    <link rel="stylesheet" href="./home.css?v=20260827-8" />
+    <link rel="stylesheet" href="./home.css?v=20260828-1" />
   </head>
   <body class="personal-home">
     <a class="home-skip" href="#main">跳到主要内容</a>
@@ -38,9 +38,9 @@
         <strong>Outisseus</strong>
       </a>
       <nav aria-label="个人主页导航">
-        <a href="./builder/">Builder</a>
-        <a href="./insurance/">Wealth</a>
-        <a href="#life">Life</a>
+        <a href="./builder/">Building</a>
+        <a href="./insurance/">Serving</a>
+        <a href="#life">Living</a>
         <a href="mailto:choeycui1996@gmail.com">Email</a>
       </nav>
     </header>
@@ -57,9 +57,9 @@
           <p class="home-kicker">Personal profile / 2026</p>
           <h1 id="home-title">Outisseus</h1>
           <div class="identity-line" aria-label="公开身份">
-            <span>Builder</span>
-            <span>Wealth consultant</span>
-            <span>Life</span>
+            <span>Building</span>
+            <span>Serving</span>
+            <span>Living</span>
           </div>
           <div class="home-actions">
             <a class="home-text-link" href="#practices">Public practices ↓</a>
@@ -77,9 +77,9 @@
           <a class="practice-card builder-card" href="./builder/">
             <div class="practice-topline">
               <span>01</span>
-              <em>Builder</em>
+              <em>Building</em>
             </div>
-            <h3>Builder</h3>
+            <h3>Building</h3>
             <ul>
               <li>AI systems</li>
               <li>Public builds</li>
@@ -91,9 +91,9 @@
           <a class="practice-card insurance-card" href="./insurance/">
             <div class="practice-topline">
               <span>02</span>
-              <em>Wealth</em>
+              <em>Serving</em>
             </div>
-            <h3>Wealth<br />Consultant</h3>
+            <h3>Serving</h3>
             <ul>
               <li>Client tools</li>
               <li>Research</li>
@@ -102,19 +102,46 @@
             <strong>Open ↗</strong>
           </a>
 
-          <a class="practice-card life-card" id="life" href="#connect">
-            <div class="practice-topline">
-              <span>03</span>
-              <em>Life</em>
+          <article class="practice-card life-card" id="life">
+            <div class="life-card-inner">
+              <div class="life-card-face life-card-front">
+                <div class="practice-topline">
+                  <span>03</span>
+                  <em>Living</em>
+                </div>
+                <h3>Living</h3>
+                <ul>
+                  <li>Travel</li>
+                  <li>Photography</li>
+                  <li>Daily notes</li>
+                </ul>
+                <button class="life-flip-toggle" type="button" aria-expanded="false">Connect ↻</button>
+              </div>
+
+              <div class="life-card-face life-card-back" aria-label="Connect accounts">
+                <div class="practice-topline">
+                  <span>03</span>
+                  <em>Connect</em>
+                </div>
+                <h3>Find me</h3>
+                <div class="life-connect-list">
+                  <a href="https://x.com/ChoeyCui" target="_blank" rel="noreferrer">
+                    <span>X</span><strong>@ChoeyCui</strong><em>↗</em>
+                  </a>
+                  <a href="https://www.instagram.com/choeycui_/" target="_blank" rel="noreferrer">
+                    <span>IG</span><strong>@choeycui_</strong><em>↗</em>
+                  </a>
+                  <a href="https://xhslink.cn/m/8Eym3bz5TIy" target="_blank" rel="noreferrer">
+                    <span>RED</span><strong>@一杯就倒刘伯伦</strong><em>↗</em>
+                  </a>
+                  <a href="mailto:choeycui1996@gmail.com">
+                    <span>MAIL</span><strong>choeycui1996@gmail.com</strong><em>↗</em>
+                  </a>
+                </div>
+                <button class="life-flip-close" type="button">Living ↺</button>
+              </div>
             </div>
-            <h3>Life</h3>
-            <ul>
-              <li>Travel</li>
-              <li>Photography</li>
-              <li>Daily notes</li>
-            </ul>
-            <strong>Connect ↓</strong>
-          </a>
+          </article>
         </div>
       </section>
 
@@ -125,12 +152,12 @@
           </div>
           <div class="now-list">
             <a href="./builder/#matrix">
-              <span>Builder system</span>
+              <span>Building</span>
               <strong>Build Matrix</strong>
               <em>More ↗</em>
             </a>
             <a href="./insurance/reports/hk-dividend-fulfillment-2025/">
-              <span>Wealth consultant</span>
+              <span>Serving</span>
               <strong>Hong Kong Participating Insurance: Long-Term Outcomes</strong>
               <em>More ↗</em>
             </a>
@@ -138,57 +165,13 @@
         </div>
       </section>
 
-      <section class="connect-section home-shell" id="connect" aria-labelledby="connect-title">
-        <div class="home-section-head connect-head">
-          <h2 id="connect-title">CONNECT</h2>
-        </div>
-
-        <div class="social-icons" role="list" aria-label="社交平台与联系方式">
-          <a href="https://x.com/ChoeyCui" class="social-icon" role="listitem" aria-label="X：@ChoeyCui" target="_blank" rel="noreferrer">
-            <span class="icon-mark" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117Z" /></svg>
-            </span>
-            <span class="social-popover social-popover-text">
-              <span class="social-popover-label">X</span><strong>@ChoeyCui</strong>
-            </span>
-          </a>
-          <a href="https://www.instagram.com/choeycui_/" class="social-icon" role="listitem" aria-label="Instagram：@choeycui_" target="_blank" rel="noreferrer">
-            <span class="icon-mark" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4.2" /><circle class="icon-dot" cx="17.4" cy="6.7" r="1.1" /></svg>
-            </span>
-            <span class="social-popover social-popover-qr">
-              <span class="qr-frame qr-frame-instagram">
-                <img src="./assets/social/qr-instagram.jpg" alt="Instagram @choeycui_ 的二维码" width="760" height="800" />
-              </span>
-              <span class="social-popover-label">Instagram</span><strong>@choeycui_</strong>
-            </span>
-          </a>
-          <a href="https://www.xiaohongshu.com/search_result?keyword=%E4%B8%80%E6%9D%AF%E5%B0%B1%E5%80%92%E5%88%98%E4%BC%AF%E4%BC%A6" class="social-icon social-icon-red" role="listitem" aria-label="小红书：一杯就倒刘伯伦" target="_blank" rel="noreferrer">
-            <span class="icon-mark red-mark" aria-hidden="true">RED</span>
-            <span class="social-popover social-popover-qr">
-              <span class="qr-frame qr-frame-xiaohongshu">
-                <img src="./assets/social/qr-xiaohongshu.jpg" alt="小红书一杯就倒刘伯伦的二维码" width="987" height="1160" />
-              </span>
-              <span class="social-popover-label">Xiaohongshu</span><strong>一杯就倒刘伯伦</strong>
-            </span>
-          </a>
-          <a href="mailto:choeycui1996@gmail.com" class="social-icon" role="listitem" aria-label="Email：choeycui1996@gmail.com">
-            <span class="icon-mark" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="15" rx="1" /><path d="m3.5 6 8.5 7 8.5-7" /></svg>
-            </span>
-            <span class="social-popover social-popover-text">
-              <span class="social-popover-label">Email</span><strong>choeycui1996@gmail.com</strong>
-            </span>
-          </a>
-        </div>
-      </section>
-
     </main>
 
     <footer class="home-footer home-shell">
       <p>© 2026 Outisseus</p>
-      <p>Public practices · Builder · Wealth consultant · Life</p>
+      <p>Public practices · Building · Serving · Living</p>
       <a href="#top">回到顶部 ↑</a>
     </footer>
+    <script src="./home.js?v=20260827-3" defer></script>
   </body>
 </html>

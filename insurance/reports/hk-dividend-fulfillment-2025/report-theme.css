@@ -118,19 +118,7 @@ a { color: inherit; }
 }
 
 .portable-page-header {
-  position: relative !important;
-  top: auto !important;
-  display: grid !important;
-  grid-template-columns: minmax(0, 1.35fr) minmax(180px, 0.45fr) !important;
-  gap: 48px !important;
-  align-items: end !important;
-  width: auto !important;
-  height: auto !important;
-  min-height: 0 !important;
-  margin: 0 !important;
-  padding: clamp(62px, 8vw, 116px) 0 clamp(46px, 6vw, 82px) !important;
-  border-bottom: 1px solid var(--ink) !important;
-  background: transparent !important;
+  display: none !important;
 }
 
 .portable-page-heading::before {
@@ -202,6 +190,8 @@ a { color: inherit; }
 
 .portable-block-stack {
   grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+  width: 100% !important;
+  max-width: none !important;
   gap: clamp(28px, 4vw, 58px) 24px !important;
   margin-top: clamp(42px, 6vw, 76px) !important;
 }
@@ -212,10 +202,12 @@ a { color: inherit; }
 @media (min-width: 900px) {
   .portable-block[data-artifact-block-id="fr"] {
     grid-column: 1 / 7 !important;
+    grid-row: 2 !important;
   }
 
   .portable-block[data-artifact-block-id="tcv"] {
     grid-column: 7 / -1 !important;
+    grid-row: 2 !important;
   }
 
   .portable-block[data-artifact-block-id="fr"] > section,
@@ -325,6 +317,89 @@ a { color: inherit; }
   color: var(--green) !important;
   font-weight: 700;
   text-underline-offset: 4px;
+}
+
+/* Enhanced reader: keep its generated structure, but use the site layout and palette. */
+#data-analytics-portable-reader .analytics-top-bar {
+  display: none !important;
+}
+
+#data-analytics-portable-reader .dashboard-shell,
+#data-analytics-portable-reader .analytics-layout-canvas {
+  background: transparent !important;
+  color: var(--ink) !important;
+}
+
+#data-analytics-portable-reader .analytics-layout-canvas {
+  display: grid !important;
+  grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+  gap: clamp(28px, 4vw, 58px) 24px !important;
+  padding-top: 42px !important;
+}
+
+#data-analytics-portable-reader .analytics-layout-row {
+  grid-column: 1 / -1 !important;
+  min-width: 0 !important;
+}
+
+#data-analytics-portable-reader .panel-header h2 {
+  color: var(--ink) !important;
+  font-family: var(--serif) !important;
+  font-size: clamp(22px, 2vw, 30px) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.025em !important;
+}
+
+#data-analytics-portable-reader .rich-markdown,
+#data-analytics-portable-reader .rich-markdown h1,
+#data-analytics-portable-reader .rich-markdown h2,
+#data-analytics-portable-reader .rich-markdown h3,
+#data-analytics-portable-reader .rich-markdown p,
+#data-analytics-portable-reader .rich-markdown li,
+#data-analytics-portable-reader .rich-markdown strong {
+  color: var(--ink) !important;
+}
+
+#data-analytics-portable-reader .rich-markdown p,
+#data-analytics-portable-reader .rich-markdown li {
+  color: var(--muted) !important;
+}
+
+#data-analytics-portable-reader .recharts-cartesian-axis-tick-value,
+#data-analytics-portable-reader .chart-legend span {
+  color: #697067 !important;
+  fill: #697067 !important;
+}
+
+#data-analytics-portable-reader .recharts-label {
+  color: var(--ink) !important;
+  fill: var(--ink) !important;
+}
+
+@media (min-width: 900px) {
+  #data-analytics-portable-reader .analytics-layout-row:has([data-artifact-block-id="fr"]),
+  #data-analytics-portable-reader .analytics-layout-row:has([data-artifact-block-id="tcv"]) {
+    display: contents !important;
+  }
+
+  #data-analytics-portable-reader [data-artifact-block-id="fr"] {
+    grid-column: 1 / 7 !important;
+  }
+
+  #data-analytics-portable-reader [data-artifact-block-id="tcv"] {
+    grid-column: 7 / -1 !important;
+  }
+
+  #data-analytics-portable-reader [data-artifact-block-id="fr"],
+  #data-analytics-portable-reader [data-artifact-block-id="tcv"] {
+    width: auto !important;
+    min-width: 0 !important;
+  }
+
+  #data-analytics-portable-reader [data-artifact-block-id="fr"] > section,
+  #data-analytics-portable-reader [data-artifact-block-id="tcv"] > section {
+    height: 100% !important;
+  }
 }
 
 /* Reference pages */

@@ -105,7 +105,7 @@ const projects = [
     tags: ["AI & Agents", "Information & Retrieval", "Applications"],
     role: "Live information-structure application and current proof-of-work anchor.",
     repo: "https://github.com/choeycui/guatian-mvp",
-    demo: "https://choeycui.github.io/guatian-mvp/",
+    demo: "https://outisseus.github.io/guatian-mvp/",
     featured: true,
     cells: [
       ["ai", "applications"],

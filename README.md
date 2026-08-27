@@ -20,7 +20,7 @@ Serve this directory with any static file server and open the root page. No buil
 
 ## Deployment target
 
-The site deploys from the public `choeycui/choeycui.github.io` repository.
+The site deploys from the public `outisseus/outisseus.github.io` repository.
 
 ## Information architecture
 
