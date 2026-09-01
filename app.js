@@ -1,12 +1,10 @@
 const GITHUB_USER = "outisseus";
 const FEATURE_TOPIC = "builder-featured";
-const curatedPrograms = Array.isArray(window.PROGRAMS_MANIFEST) ? window.PROGRAMS_MANIFEST : [];
 const curatedProjects = Array.isArray(window.PROJECTS_MANIFEST) ? window.PROJECTS_MANIFEST : [];
 const matrixManifest = window.MATRIX_MANIFEST || { columns: [], rows: [] };
 let projects = curatedProjects.map((project) => ({ ...project }));
 
 const matrix = document.querySelector("#build-matrix");
-const programNotes = document.querySelector("#program-notes");
 const dialog = document.querySelector("#project-dialog");
 const projectList = document.querySelector("#project-list");
 const syncStatus = document.querySelector("#github-sync-status");
@@ -26,45 +24,6 @@ function repoFactLine(project) {
     project.updated ? `updated ${project.updated}` : null,
     Number.isFinite(project.stars) ? `★ ${project.stars}` : null,
   ].filter(Boolean).join(" · ");
-}
-
-function makeEvidenceLink(item) {
-  const link = document.createElement("a");
-  link.href = item.href;
-  link.textContent = `${item.label} ↗`;
-  link.target = "_blank";
-  link.rel = "noreferrer";
-  return link;
-}
-
-function renderProgramNotes() {
-  programNotes.replaceChildren();
-  curatedPrograms.forEach((program) => {
-    const project = projects.find((item) => item.id === program.projectId);
-    const note = document.createElement("article");
-    note.className = `program-note is-${program.tone}`;
-
-    const heading = document.createElement("div");
-    heading.className = "program-note-head";
-    const mode = document.createElement("span");
-    mode.className = "program-mode";
-    mode.textContent = program.mode;
-    const name = document.createElement("button");
-    name.type = "button";
-    name.className = "program-name";
-    name.textContent = program.name;
-    name.addEventListener("click", () => project && openProject(project));
-    heading.append(mode, name);
-
-    const copy = document.createElement("div");
-    copy.className = "program-note-copy";
-    const vision = document.createElement("p");
-    vision.textContent = program.vision;
-    const link = makeEvidenceLink(program.evidence[0]);
-    copy.append(vision, link);
-    note.append(heading, copy);
-    programNotes.append(note);
-  });
 }
 
 function setMatrixHighlight(projectId) {
@@ -290,7 +249,6 @@ function mergeGitHubData(repositories) {
       archived: false,
     }));
 
-  renderProgramNotes();
   renderMatrix();
   renderProjectList([...activeCurated, ...discovered]);
 }
@@ -307,7 +265,6 @@ async function syncFromGitHub() {
     syncStatus.textContent = `Live facts from GitHub · ${repositories.length} public repositories checked`;
     syncStatus.dataset.state = "live";
   } catch (error) {
-    renderProgramNotes();
     renderMatrix();
     renderProjectList();
     syncStatus.textContent = "Curated snapshot · GitHub live facts unavailable";
@@ -319,7 +276,6 @@ document.querySelector(".dialog-close").addEventListener("click", () => dialog.c
 dialog.addEventListener("click", (event) => {
   if (event.target === dialog) dialog.close();
 });
-renderProgramNotes();
 renderMatrix();
 renderProjectList();
 syncFromGitHub();
