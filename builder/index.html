@@ -33,9 +33,9 @@
     <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="../apple-touch-icon.png?v=20260828-1" sizes="180x180" />
     <link rel="manifest" href="../site.webmanifest" />
-    <link rel="stylesheet" href="../styles.css?v=20260901-2" />
-    <script src="../projects-data.js?v=20260901-2" defer></script>
-    <script src="../app.js?v=20260901-2" defer></script>
+    <link rel="stylesheet" href="../styles.css?v=20260901-3" />
+    <script src="../projects-data.js?v=20260901-3" defer></script>
+    <script src="../app.js?v=20260901-3" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -128,39 +128,25 @@
             <h2 id="matrix-title">Build Matrix</h2>
           </div>
           <p>
-            The old theme-by-layer grid made unlike work look equivalent. This
-            matrix separates the two durable programs by boundary, ownership,
-            current build, and public evidence.
+            One vision: an agent should know with provenance and act with proof.
+            The matrix maps the projects that make that vision concrete.
           </p>
         </div>
 
-        <div class="matrix-legend program-legend" aria-label="Program legend">
-          <span><i class="program-swatch research"></i> Research-led</span>
-          <span><i class="program-swatch execution"></i> Execution-led</span>
+        <div class="program-notes" id="program-notes" aria-label="Core program boundaries"></div>
+
+        <div class="matrix-legend" aria-label="Project status legend">
+          <span><i class="status-swatch building"></i> Building</span>
+          <span><i class="status-swatch design"></i> Design</span>
+          <span><i class="status-swatch experiment"></i> Experiment</span>
+          <span><i class="status-swatch writing"></i> Writing</span>
+          <span class="matrix-count">10 active curated projects</span>
         </div>
 
-        <div class="matrix-scroll" aria-label="Build Matrix">
-          <div class="build-matrix" id="build-matrix" role="table" aria-label="Personal Context and DeTool program boundaries"></div>
+        <div class="matrix-scroll" tabindex="0" aria-label="Scrollable portfolio Build Matrix">
+          <div class="build-matrix" id="build-matrix" role="table" aria-label="Active projects by portfolio row and artifact layer"></div>
         </div>
 
-        <div class="dependency-map boundary-loop" aria-label="Asymmetric agent boundary loop">
-          <p class="dependency-label">One asymmetric loop</p>
-          <div class="dependency-flow research-flow">
-            <button type="button" data-project-jump="personal-context">personal-context</button>
-            <span aria-hidden="true">→</span>
-            <span>minimum projection</span>
-          </div>
-          <div class="dependency-flow execution-flow">
-            <span>agent / planner</span>
-            <span aria-hidden="true">→</span>
-            <button type="button" data-project-jump="detool">DeTool</button>
-          </div>
-          <div class="dependency-flow">
-            <span>verified usage proof</span>
-            <span aria-hidden="true">→</span>
-            <span>candidate context update</span>
-          </div>
-        </div>
       </section>
 
       <section class="project-section" id="projects" aria-labelledby="projects-title">

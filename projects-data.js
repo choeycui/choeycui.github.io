@@ -5,6 +5,7 @@ window.PROGRAMS_MANIFEST = [
     name: "Personal Context",
     mode: "Research program",
     tone: "research",
+    vision: "Know with provenance — memory that remains source-backed, governed, and selectively disclosed.",
     boundary: "What may the agent know, rely on, and disclose — from which evidence and under which write policy?",
     core: [
       "Evidence continuity",
@@ -25,6 +26,7 @@ window.PROGRAMS_MANIFEST = [
     name: "DeTool",
     mode: "Execution system",
     tone: "execution",
+    vision: "Act with proof — execution that remains authorized, routable, and verified by read-back.",
     boundary: "What may the agent do in the external world, through which provider, under which authority, and with what proof?",
     core: [
       "Capability identity",
@@ -41,6 +43,21 @@ window.PROGRAMS_MANIFEST = [
   },
 ];
 
+window.MATRIX_MANIFEST = {
+  columns: [
+    ["research", "Research"],
+    ["infrastructure", "Infrastructure"],
+    ["applications", "Applications"],
+    ["writing", "Writing"],
+  ],
+  rows: [
+    ["boundaries", "Core boundaries", "state · authority · proof"],
+    ["systems", "Supporting systems", "planning · reliability · sources"],
+    ["applications", "Reference applications", "inspectable system proofs"],
+    ["creative", "Creative work", "fiction · process · voice"],
+  ],
+};
+
 window.PROJECTS_MANIFEST = [
   {
     id: "personal-context",
@@ -54,6 +71,7 @@ window.PROJECTS_MANIFEST = [
     repo: "https://github.com/outisseus/personal-context",
     demo: null,
     featured: true,
+    cells: [["boundaries", "research"], ["boundaries", "infrastructure"]],
   },
   {
     id: "detool",
@@ -67,6 +85,7 @@ window.PROJECTS_MANIFEST = [
     repo: "https://github.com/outisseus/detool",
     demo: null,
     featured: true,
+    cells: [["boundaries", "infrastructure"]],
   },
   {
     id: "intentgraph",
@@ -79,6 +98,7 @@ window.PROJECTS_MANIFEST = [
     repo: null,
     demo: null,
     featured: false,
+    cells: [["systems", "infrastructure"]],
   },
   {
     id: "agent-skills",
@@ -91,6 +111,7 @@ window.PROJECTS_MANIFEST = [
     repo: null,
     demo: null,
     featured: false,
+    cells: [["systems", "infrastructure"]],
   },
   {
     id: "session-health-probe",
@@ -104,6 +125,7 @@ window.PROJECTS_MANIFEST = [
     repo: "https://github.com/outisseus/session-health-probe",
     demo: null,
     featured: true,
+    cells: [["systems", "infrastructure"]],
   },
   {
     id: "official-source-monitor",
@@ -116,6 +138,7 @@ window.PROJECTS_MANIFEST = [
     repo: null,
     demo: null,
     featured: false,
+    cells: [["systems", "infrastructure"]],
   },
   {
     id: "jarvis",
@@ -128,6 +151,7 @@ window.PROJECTS_MANIFEST = [
     repo: null,
     demo: null,
     featured: false,
+    cells: [["applications", "applications"]],
   },
   {
     id: "guatian",
@@ -141,6 +165,7 @@ window.PROJECTS_MANIFEST = [
     repo: "https://github.com/outisseus/guatian-mvp",
     demo: "https://outisseus.github.io/guatian-mvp/",
     featured: false,
+    cells: [],
   },
   {
     id: "fuzzy-photo-search",
@@ -153,6 +178,7 @@ window.PROJECTS_MANIFEST = [
     repo: null,
     demo: null,
     featured: false,
+    cells: [["applications", "applications"]],
   },
   {
     id: "content-growth-engine",
@@ -165,6 +191,7 @@ window.PROJECTS_MANIFEST = [
     repo: null,
     demo: null,
     featured: false,
+    cells: [["applications", "applications"]],
   },
   {
     id: "novel",
@@ -178,5 +205,6 @@ window.PROJECTS_MANIFEST = [
     demo: "https://peaceful-relish-7e9.notion.site/nolightbeforesunrise",
     demoLabel: "阅读中文连载 ↗",
     featured: false,
+    cells: [["creative", "writing"]],
   },
 ];

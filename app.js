@@ -2,10 +2,11 @@ const GITHUB_USER = "outisseus";
 const FEATURE_TOPIC = "builder-featured";
 const curatedPrograms = Array.isArray(window.PROGRAMS_MANIFEST) ? window.PROGRAMS_MANIFEST : [];
 const curatedProjects = Array.isArray(window.PROJECTS_MANIFEST) ? window.PROJECTS_MANIFEST : [];
+const matrixManifest = window.MATRIX_MANIFEST || { columns: [], rows: [] };
 let projects = curatedProjects.map((project) => ({ ...project }));
-let programs = curatedPrograms.map((program) => ({ ...program }));
 
 const matrix = document.querySelector("#build-matrix");
+const programNotes = document.querySelector("#program-notes");
 const dialog = document.querySelector("#project-dialog");
 const projectList = document.querySelector("#project-list");
 const syncStatus = document.querySelector("#github-sync-status");
@@ -36,30 +37,15 @@ function makeEvidenceLink(item) {
   return link;
 }
 
-function renderMatrix() {
-  matrix.replaceChildren();
-
-  const header = document.createElement("div");
-  header.className = "program-matrix-head";
-  header.setAttribute("role", "row");
-  ["Program", "Boundary question", "Enduring core", "Building now", "Public evidence"].forEach((label) => {
-    const cell = document.createElement("span");
-    cell.setAttribute("role", "columnheader");
-    cell.textContent = label;
-    header.append(cell);
-  });
-  matrix.append(header);
-
-  programs.forEach((program) => {
+function renderProgramNotes() {
+  programNotes.replaceChildren();
+  curatedPrograms.forEach((program) => {
     const project = projects.find((item) => item.id === program.projectId);
-    const row = document.createElement("article");
-    row.className = `program-row is-${program.tone}`;
-    row.dataset.program = program.id;
-    row.setAttribute("role", "row");
+    const note = document.createElement("article");
+    note.className = `program-note is-${program.tone}`;
 
     const heading = document.createElement("div");
-    heading.className = "program-heading";
-    heading.setAttribute("role", "rowheader");
+    heading.className = "program-note-head";
     const mode = document.createElement("span");
     mode.className = "program-mode";
     mode.textContent = program.mode;
@@ -70,57 +56,101 @@ function renderMatrix() {
     name.addEventListener("click", () => project && openProject(project));
     heading.append(mode, name);
 
-    const boundary = makeMatrixCell("Boundary question", program.boundary, "program-boundary");
-
-    const core = document.createElement("div");
-    core.className = "program-cell program-core";
-    core.setAttribute("role", "cell");
-    core.append(makeCellLabel("Enduring core"));
-    const list = document.createElement("ul");
-    program.core.forEach((item) => {
-      const li = document.createElement("li");
-      li.textContent = item;
-      list.append(li);
-    });
-    core.append(list);
-
-    const building = makeMatrixCell("Building now", program.building, "program-building");
-
-    const evidence = document.createElement("div");
-    evidence.className = "program-cell program-evidence";
-    evidence.setAttribute("role", "cell");
-    evidence.append(makeCellLabel("Public evidence"));
-    const links = document.createElement("div");
-    links.className = "program-links";
-    program.evidence.forEach((item) => links.append(makeEvidenceLink(item)));
-    evidence.append(links);
-    if (project) {
-      const facts = document.createElement("small");
-      facts.className = "program-repo-facts";
-      facts.textContent = repoFactLine(project) || "Curated repository snapshot";
-      evidence.append(facts);
-    }
-
-    row.append(heading, boundary, core, building, evidence);
-    matrix.append(row);
+    const copy = document.createElement("div");
+    copy.className = "program-note-copy";
+    const vision = document.createElement("p");
+    vision.textContent = program.vision;
+    const link = makeEvidenceLink(program.evidence[0]);
+    copy.append(vision, link);
+    note.append(heading, copy);
+    programNotes.append(note);
   });
 }
 
-function makeCellLabel(label) {
-  const element = document.createElement("span");
-  element.className = "program-cell-label";
-  element.textContent = label;
-  return element;
+function setMatrixHighlight(projectId) {
+  matrix.classList.toggle("has-active", Boolean(projectId));
+  matrix.querySelectorAll(".project-card").forEach((card) => {
+    card.classList.toggle("is-related", card.dataset.project === projectId);
+  });
 }
 
-function makeMatrixCell(label, copy, className) {
-  const cell = document.createElement("div");
-  cell.className = `program-cell ${className}`;
-  cell.setAttribute("role", "cell");
-  const text = document.createElement("p");
-  text.textContent = copy;
-  cell.append(makeCellLabel(label), text);
-  return cell;
+function makeProjectCard(project) {
+  const card = document.createElement("button");
+  card.type = "button";
+  card.className = "project-card";
+  card.dataset.project = project.id;
+  card.dataset.status = project.status;
+  card.setAttribute("aria-label", `Open ${project.name} project details`);
+
+  const status = document.createElement("span");
+  status.className = "project-card-status";
+  status.textContent = project.status;
+  const name = document.createElement("strong");
+  name.textContent = project.name;
+  const thesis = document.createElement("span");
+  thesis.className = "project-card-thesis";
+  thesis.textContent = project.thesis;
+  card.append(status, name, thesis);
+
+  card.addEventListener("mouseenter", () => setMatrixHighlight(project.id));
+  card.addEventListener("mouseleave", () => setMatrixHighlight(null));
+  card.addEventListener("focus", () => setMatrixHighlight(project.id));
+  card.addEventListener("blur", () => setMatrixHighlight(null));
+  card.addEventListener("click", () => openProject(project));
+  return card;
+}
+
+function renderMatrix() {
+  matrix.replaceChildren();
+  const activeProjects = projects.filter((project) => project.status !== "inactive");
+
+  const header = document.createElement("div");
+  header.className = "matrix-head";
+  header.setAttribute("role", "row");
+  const corner = document.createElement("span");
+  corner.className = "matrix-corner";
+  corner.setAttribute("role", "columnheader");
+  corner.textContent = "Portfolio layer";
+  header.append(corner);
+  matrixManifest.columns.forEach(([, label]) => {
+    const heading = document.createElement("span");
+    heading.className = "matrix-column-heading";
+    heading.setAttribute("role", "columnheader");
+    heading.textContent = label;
+    header.append(heading);
+  });
+  matrix.append(header);
+
+  matrixManifest.rows.forEach(([rowId, rowLabel, rowNote]) => {
+    const row = document.createElement("section");
+    row.className = "matrix-row";
+    row.setAttribute("role", "row");
+
+    const heading = document.createElement("header");
+    heading.className = "matrix-row-heading";
+    heading.setAttribute("role", "rowheader");
+    const title = document.createElement("strong");
+    title.textContent = rowLabel;
+    const note = document.createElement("span");
+    note.textContent = rowNote;
+    heading.append(title, note);
+    row.append(heading);
+
+    matrixManifest.columns.forEach(([columnId, columnLabel]) => {
+      const cell = document.createElement("div");
+      cell.className = "matrix-cell";
+      cell.dataset.columnLabel = columnLabel;
+      cell.setAttribute("role", "cell");
+      const cellProjects = activeProjects.filter((project) =>
+        Array.isArray(project.cells)
+          && project.cells.some(([projectRow, projectColumn]) => projectRow === rowId && projectColumn === columnId),
+      );
+      if (!cellProjects.length) cell.classList.add("is-empty");
+      cellProjects.forEach((project) => cell.append(makeProjectCard(project)));
+      row.append(cell);
+    });
+    matrix.append(row);
+  });
 }
 
 function openProject(project) {
@@ -232,11 +262,6 @@ function mergeGitHubData(repositories) {
     };
   });
 
-  programs = curatedPrograms.map((program) => {
-    const project = projects.find((item) => item.id === program.projectId);
-    return project ? { ...program, repositoryUpdated: project.updated } : { ...program };
-  });
-
   const curatedSlugs = new Set(
     curatedProjects.filter((project) => project.repoSlug).map((project) => project.repoSlug.toLowerCase()),
   );
@@ -265,6 +290,7 @@ function mergeGitHubData(repositories) {
       archived: false,
     }));
 
+  renderProgramNotes();
   renderMatrix();
   renderProjectList([...activeCurated, ...discovered]);
 }
@@ -281,6 +307,7 @@ async function syncFromGitHub() {
     syncStatus.textContent = `Live facts from GitHub · ${repositories.length} public repositories checked`;
     syncStatus.dataset.state = "live";
   } catch (error) {
+    renderProgramNotes();
     renderMatrix();
     renderProjectList();
     syncStatus.textContent = "Curated snapshot · GitHub live facts unavailable";
@@ -292,13 +319,7 @@ document.querySelector(".dialog-close").addEventListener("click", () => dialog.c
 dialog.addEventListener("click", (event) => {
   if (event.target === dialog) dialog.close();
 });
-document.querySelectorAll("[data-project-jump]").forEach((button) => {
-  button.addEventListener("click", () => {
-    const project = projects.find((item) => item.id === button.dataset.projectJump);
-    if (project) openProject(project);
-  });
-});
-
+renderProgramNotes();
 renderMatrix();
 renderProjectList();
 syncFromGitHub();
