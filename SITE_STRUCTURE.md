@@ -6,7 +6,7 @@ The root is the general personal profile. Public identities have separate pages 
 | --- | --- | --- |
 | `/` | Personal Profile: Outisseus, public identities, selected work, social links | Live |
 | `/profile/` | Concise public CV card with a responsive work-and-education timeline | Live |
-| `/builder/` | Technical builder profile, X conversion landing page and Build Matrix | Live |
+| `/builder/` | Builder profile with the Personal Context research program, DeTool execution system, GitHub-backed repository facts, and two-boundary Build Matrix | Live |
 | `/builder/building.html` | Dated progress, decisions, constraints, and failures | Live |
 | `/insurance/` | Single-screen financial-adviser portal: Client Tools / Research / AI | Live |
 | `/insurance/tools/` | Approval-gated online toolkit: CIM3 and promotion calculator | Live |
@@ -25,7 +25,7 @@ The root is the general personal profile. Public identities have separate pages 
 
 ## Navigation contract
 
-The Profile Home exposes Builder / Wealth Consultant / Life / Social. The Builder page exposes Build Matrix / Projects / Writing / About / GitHub / X. The root page stays concise; the separate Profile route carries the short timeline.
+The Profile Home exposes Builder / Wealth Consultant / Life / Social. The Builder page keeps a curated Personal Context ↔ DeTool narrative while loading public repository facts from GitHub; it also exposes Projects / Writing / About / GitHub / X. The root page stays concise; the separate Profile route carries the short timeline.
 
 ## Content ownership
 

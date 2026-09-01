@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#edf1ef" />
+    <meta name="theme-color" content="#f3efe6" />
     <meta
       name="description"
-      content="Outisseus builds governed agent context, verifiable capability execution, information systems, and public experiments."
+      content="Outisseus builds a research-led Personal Context system and an engineering-led DeTool execution layer for long-running AI agents."
     />
     <meta property="og:title" content="Outisseus — Builder profile" />
     <meta
       property="og:description"
-      content="AI agents, governed internal state, verifiable external action, information systems, and writing."
+      content="Two agent boundaries: governed internal state through Personal Context and verifiable external action through DeTool."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://outisseus.github.io/builder/" />
@@ -33,9 +33,9 @@
     <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="../apple-touch-icon.png?v=20260828-1" sizes="180x180" />
     <link rel="manifest" href="../site.webmanifest" />
-    <link rel="stylesheet" href="../styles.css?v=20260901-1" />
-    <script src="../projects-data.js?v=20260901-1" defer></script>
-    <script src="../app.js?v=20260901-1" defer></script>
+    <link rel="stylesheet" href="../styles.css?v=20260901-2" />
+    <script src="../projects-data.js?v=20260901-2" defer></script>
+    <script src="../app.js?v=20260901-2" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -72,7 +72,7 @@
           <p class="profile-handle">@ChoeyCui</p>
           <h1 id="profile-name">Outisseus</h1>
           <p class="profile-role">Ex-NIQ data scientist → builder</p>
-          <p class="profile-location">AI agents · infrastructure · information systems · open networks</p>
+          <p class="profile-location">Agent boundaries · governed context · verified execution</p>
           <div class="profile-links">
             <a class="button primary" href="https://x.com/ChoeyCui">Follow on X ↗</a>
             <a class="button secondary" href="https://github.com/outisseus">GitHub ↗</a>
@@ -82,23 +82,23 @@
         <div class="profile-summary">
           <p class="eyebrow"><span></span> Current profile</p>
           <h2>
-            I build systems that help agents know more, act better, and show their work.
+            I build the two boundaries a long-running agent needs.
           </h2>
           <p class="profile-deck">
-            My work moves between context infrastructure, capability access,
-            intent and verification, information retrieval, and small applications
-            that make those ideas inspectable. I write fiction alongside it.
+            Personal Context asks what an agent may know and disclose. DeTool asks
+            what it may do in the world and how the result can be proved. One is a
+            research program; the other is an execution system.
           </p>
           <div class="profile-status-grid">
             <div>
-              <span>Live now</span>
-              <strong>Guatian MVP</strong>
-              <a href="https://outisseus.github.io/guatian-mvp/">Open demo ↗</a>
+              <span>Research track</span>
+              <strong>Personal Context</strong>
+              <a href="https://github.com/outisseus/personal-context/tree/main/papers/personal-context-and-capability-boundaries">Open paper ↗</a>
             </div>
             <div>
-              <span>Building</span>
-              <strong>personal-context</strong>
-              <a href="https://github.com/outisseus/personal-context">Inspect repo ↗</a>
+              <span>Execution track</span>
+              <strong>DeTool</strong>
+              <a href="https://github.com/outisseus/detool">Contracts + tests ↗</a>
             </div>
             <div>
               <span>Writing</span>
@@ -116,8 +116,8 @@
       <section class="thesis-band" aria-label="Builder thesis">
         <p>
           <span>What to expect</span>
-          Working demos, architecture, failures, and original theses — with live,
-          WIP, and design status kept visibly separate.
+          Theory where theory is the work. Executable proof where the claim is
+          operational. Both remain inspectable through public repositories.
         </p>
       </section>
 
@@ -128,40 +128,29 @@
             <h2 id="matrix-title">Build Matrix</h2>
           </div>
           <p>
-            One project can occupy more than one cell. Hover to trace repeated
-            appearances; select a card for its role in the system. Relationships
-            stay curated while public repository facts sync from GitHub.
+            The old theme-by-layer grid made unlike work look equivalent. This
+            matrix separates the two durable programs by boundary, ownership,
+            current build, and public evidence.
           </p>
         </div>
 
-        <div class="matrix-legend" aria-label="Matrix legend">
-          <span><i class="status-dot live"></i> Live</span>
-          <span><i class="status-dot building"></i> Building</span>
-          <span><i class="status-dot design"></i> Design</span>
-          <span><i class="status-dot experiment"></i> Experiment</span>
-          <span><i class="status-dot writing"></i> Writing</span>
+        <div class="matrix-legend program-legend" aria-label="Program legend">
+          <span><i class="program-swatch research"></i> Research-led</span>
+          <span><i class="program-swatch execution"></i> Execution-led</span>
         </div>
 
-        <div class="matrix-scroll" tabindex="0" aria-label="Scrollable Build Matrix">
-          <div class="build-matrix" id="build-matrix" role="table" aria-label="Projects by theme and artifact layer">
-            <div class="matrix-corner" role="columnheader">
-              <span>Theme ↓</span>
-              <span>Layer →</span>
-            </div>
-            <div class="matrix-column-heading" role="columnheader">Infrastructure</div>
-            <div class="matrix-column-heading" role="columnheader">Applications</div>
-            <div class="matrix-column-heading" role="columnheader">Writing</div>
-          </div>
+        <div class="matrix-scroll" aria-label="Build Matrix">
+          <div class="build-matrix" id="build-matrix" role="table" aria-label="Personal Context and DeTool program boundaries"></div>
         </div>
 
-        <div class="dependency-map" aria-label="System dependencies">
-          <p class="dependency-label">Agent boundary loop</p>
-          <div class="dependency-flow">
+        <div class="dependency-map boundary-loop" aria-label="Asymmetric agent boundary loop">
+          <p class="dependency-label">One asymmetric loop</p>
+          <div class="dependency-flow research-flow">
             <button type="button" data-project-jump="personal-context">personal-context</button>
             <span aria-hidden="true">→</span>
             <span>minimum projection</span>
           </div>
-          <div class="dependency-flow">
+          <div class="dependency-flow execution-flow">
             <span>agent / planner</span>
             <span aria-hidden="true">→</span>
             <button type="button" data-project-jump="detool">DeTool</button>
@@ -183,8 +172,9 @@
               <p class="github-sync" id="github-sync-status" aria-live="polite">Loading curated snapshot…</p>
             </div>
             <p>
-              Repositories tagged <code>builder-featured</code> are loaded from
-              GitHub. “Live” still means inspectable now; design is not shipped software.
+              Curated thesis and lifecycle stay local. GitHub supplies live
+              descriptions, update times, languages, stars, topics, homepages,
+              and archived state without redefining the program.
             </p>
           </div>
           <div class="project-list" id="project-list"></div>
@@ -265,6 +255,7 @@
         <div><dt>Latest update</dt><dd id="dialog-updated"></dd></div>
         <div><dt>Tags</dt><dd id="dialog-tags"></dd></div>
         <div><dt>System role</dt><dd id="dialog-role"></dd></div>
+        <div><dt>Repository snapshot</dt><dd id="dialog-repository"></dd></div>
       </dl>
       <div class="dialog-links" id="dialog-links"></div>
     </dialog>

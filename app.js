@@ -1,14 +1,9 @@
 const GITHUB_USER = "outisseus";
 const FEATURE_TOPIC = "builder-featured";
-const themes = [
-  ["ai", "AI & Agents", "context · intent · execution"],
-  ["web3", "Open Networks", "access · trust · coordination"],
-  ["information", "Information & Retrieval", "sources · memory · structure"],
-  ["creative", "Creative & Writing", "fiction · process · voice"],
-];
-const layers = ["infrastructure", "applications", "writing"];
+const curatedPrograms = Array.isArray(window.PROGRAMS_MANIFEST) ? window.PROGRAMS_MANIFEST : [];
 const curatedProjects = Array.isArray(window.PROJECTS_MANIFEST) ? window.PROJECTS_MANIFEST : [];
 let projects = curatedProjects.map((project) => ({ ...project }));
+let programs = curatedPrograms.map((program) => ({ ...program }));
 
 const matrix = document.querySelector("#build-matrix");
 const dialog = document.querySelector("#project-dialog");
@@ -17,63 +12,115 @@ const syncStatus = document.querySelector("#github-sync-status");
 
 function formatDate(value) {
   if (!value) return "—";
-  return new Intl.DateTimeFormat("en", { year: "numeric", month: "short", day: "2-digit" }).format(new Date(value));
+  return new Intl.DateTimeFormat("en", {
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+  }).format(new Date(value));
 }
 
-function makeCard(project) {
-  const card = document.createElement("button");
-  card.type = "button";
-  card.className = "project-card";
-  card.dataset.project = project.id;
-  card.dataset.status = project.status;
-  card.setAttribute("aria-label", `${project.name}: ${project.thesis}. Open details.`);
-  const name = document.createElement("strong");
-  name.textContent = project.name;
-  const thesis = document.createElement("span");
-  thesis.textContent = project.thesis;
-  card.append(name, thesis);
-  card.addEventListener("click", () => openProject(project));
-  card.addEventListener("mouseenter", () => highlightProject(project.id));
-  card.addEventListener("focus", () => highlightProject(project.id));
-  card.addEventListener("mouseleave", clearHighlight);
-  card.addEventListener("blur", clearHighlight);
-  return card;
+function repoFactLine(project) {
+  return [
+    project.language,
+    project.updated ? `updated ${project.updated}` : null,
+    Number.isFinite(project.stars) ? `★ ${project.stars}` : null,
+  ].filter(Boolean).join(" · ");
+}
+
+function makeEvidenceLink(item) {
+  const link = document.createElement("a");
+  link.href = item.href;
+  link.textContent = `${item.label} ↗`;
+  link.target = "_blank";
+  link.rel = "noreferrer";
+  return link;
 }
 
 function renderMatrix() {
-  matrix.querySelectorAll(".matrix-row-heading, .matrix-cell").forEach((element) => element.remove());
-  for (const [themeId, themeName, themeNote] of themes) {
+  matrix.replaceChildren();
+
+  const header = document.createElement("div");
+  header.className = "program-matrix-head";
+  header.setAttribute("role", "row");
+  ["Program", "Boundary question", "Enduring core", "Building now", "Public evidence"].forEach((label) => {
+    const cell = document.createElement("span");
+    cell.setAttribute("role", "columnheader");
+    cell.textContent = label;
+    header.append(cell);
+  });
+  matrix.append(header);
+
+  programs.forEach((program) => {
+    const project = projects.find((item) => item.id === program.projectId);
+    const row = document.createElement("article");
+    row.className = `program-row is-${program.tone}`;
+    row.dataset.program = program.id;
+    row.setAttribute("role", "row");
+
     const heading = document.createElement("div");
-    heading.className = "matrix-row-heading";
+    heading.className = "program-heading";
     heading.setAttribute("role", "rowheader");
-    const name = document.createElement("strong");
-    name.textContent = themeName;
-    const note = document.createElement("span");
-    note.textContent = themeNote;
-    heading.append(name, note);
-    matrix.append(heading);
+    const mode = document.createElement("span");
+    mode.className = "program-mode";
+    mode.textContent = program.mode;
+    const name = document.createElement("button");
+    name.type = "button";
+    name.className = "program-name";
+    name.textContent = program.name;
+    name.addEventListener("click", () => project && openProject(project));
+    heading.append(mode, name);
 
-    for (const layer of layers) {
-      const cell = document.createElement("div");
-      cell.className = "matrix-cell";
-      cell.setAttribute("role", "cell");
-      cell.dataset.cell = `${themeId}:${layer}`;
-      projects
-        .filter((project) => project.cells?.some(([theme, projectLayer]) => theme === themeId && projectLayer === layer))
-        .forEach((project) => cell.append(makeCard(project)));
-      matrix.append(cell);
+    const boundary = makeMatrixCell("Boundary question", program.boundary, "program-boundary");
+
+    const core = document.createElement("div");
+    core.className = "program-cell program-core";
+    core.setAttribute("role", "cell");
+    core.append(makeCellLabel("Enduring core"));
+    const list = document.createElement("ul");
+    program.core.forEach((item) => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      list.append(li);
+    });
+    core.append(list);
+
+    const building = makeMatrixCell("Building now", program.building, "program-building");
+
+    const evidence = document.createElement("div");
+    evidence.className = "program-cell program-evidence";
+    evidence.setAttribute("role", "cell");
+    evidence.append(makeCellLabel("Public evidence"));
+    const links = document.createElement("div");
+    links.className = "program-links";
+    program.evidence.forEach((item) => links.append(makeEvidenceLink(item)));
+    evidence.append(links);
+    if (project) {
+      const facts = document.createElement("small");
+      facts.className = "program-repo-facts";
+      facts.textContent = repoFactLine(project) || "Curated repository snapshot";
+      evidence.append(facts);
     }
-  }
+
+    row.append(heading, boundary, core, building, evidence);
+    matrix.append(row);
+  });
 }
 
-function highlightProject(id) {
-  matrix.classList.add("has-active");
-  document.querySelectorAll(`[data-project="${id}"]`).forEach((card) => card.classList.add("is-related"));
+function makeCellLabel(label) {
+  const element = document.createElement("span");
+  element.className = "program-cell-label";
+  element.textContent = label;
+  return element;
 }
 
-function clearHighlight() {
-  matrix.classList.remove("has-active");
-  document.querySelectorAll(".project-card.is-related").forEach((card) => card.classList.remove("is-related"));
+function makeMatrixCell(label, copy, className) {
+  const cell = document.createElement("div");
+  cell.className = `program-cell ${className}`;
+  cell.setAttribute("role", "cell");
+  const text = document.createElement("p");
+  text.textContent = copy;
+  cell.append(makeCellLabel(label), text);
+  return cell;
 }
 
 function openProject(project) {
@@ -84,9 +131,12 @@ function openProject(project) {
   document.querySelector("#dialog-updated").textContent = project.updated;
   document.querySelector("#dialog-tags").textContent = project.tags.join(" · ");
   document.querySelector("#dialog-role").textContent = project.role;
+  document.querySelector("#dialog-repository").textContent = project.repoDescription || "Curated snapshot; live repository description unavailable.";
   const links = document.querySelector("#dialog-links");
   links.replaceChildren();
-  if (project.demo) links.append(makeDialogLink(project.demoLabel || "Open live demo ↗", project.demo));
+  if (project.demo && project.status !== "inactive") {
+    links.append(makeDialogLink(project.demoLabel || "Open live demo ↗", project.demo));
+  }
   if (project.repo) links.append(makeDialogLink("Inspect repository ↗", project.repo));
   if (!project.demo && !project.repo) {
     const pending = document.createElement("span");
@@ -102,14 +152,20 @@ function makeDialogLink(label, href) {
   link.className = "button primary";
   link.href = href;
   link.textContent = label;
+  link.target = "_blank";
+  link.rel = "noreferrer";
   return link;
 }
 
 function projectAction(project) {
-  const link = document.createElement("a");
-  link.href = project.demo || project.repo;
-  link.textContent = project.demo ? "Open ↗" : "GitHub ↗";
-  if (project.demo || project.repo) return link;
+  if (project.demo || project.repo) {
+    const link = document.createElement("a");
+    link.href = project.demo || project.repo;
+    link.textContent = project.demo ? "Open ↗" : "GitHub ↗";
+    link.target = "_blank";
+    link.rel = "noreferrer";
+    return link;
+  }
   const button = document.createElement("button");
   button.type = "button";
   button.textContent = "Details →";
@@ -117,7 +173,7 @@ function projectAction(project) {
   return button;
 }
 
-function renderProjectList(featured = projects.filter((project) => project.featured)) {
+function renderProjectList(featured = projects.filter((project) => project.featured && project.status !== "inactive")) {
   projectList.replaceChildren();
   featured.slice(0, 8).forEach((project, index) => {
     const row = document.createElement("article");
@@ -127,21 +183,33 @@ function renderProjectList(featured = projects.filter((project) => project.featu
     number.textContent = String(index + 1).padStart(2, "0");
     const title = document.createElement("h3");
     title.textContent = project.name;
+
+    const copy = document.createElement("div");
+    copy.className = "project-copy";
     const thesis = document.createElement("p");
     thesis.textContent = project.thesis;
+    copy.append(thesis);
+    if (project.repoDescription && project.repoDescription !== project.thesis) {
+      const repository = document.createElement("small");
+      repository.className = "repo-summary";
+      repository.textContent = `GitHub · ${project.repoDescription}`;
+      copy.append(repository);
+    }
+
     const meta = document.createElement("div");
     meta.className = "row-meta";
     const status = document.createElement("span");
     status.className = "status-pill";
     status.textContent = project.status;
     meta.append(status, projectAction(project));
-    if (project.language || Number.isFinite(project.stars)) {
-      const facts = document.createElement("span");
-      facts.className = "repo-facts";
-      facts.textContent = [project.language, Number.isFinite(project.stars) ? `★ ${project.stars}` : null].filter(Boolean).join(" · ");
-      meta.append(facts);
+    const facts = repoFactLine(project);
+    if (facts) {
+      const factLine = document.createElement("span");
+      factLine.className = "repo-facts";
+      factLine.textContent = facts;
+      meta.append(factLine);
     }
-    row.append(number, title, thesis, meta);
+    row.append(number, title, copy, meta);
     projectList.append(row);
   });
 }
@@ -153,20 +221,33 @@ function mergeGitHubData(repositories) {
     if (!repo) return { ...project };
     return {
       ...project,
-      thesis: repo.description || project.thesis,
-      updated: formatDate(repo.pushed_at),
       repo: repo.html_url,
+      repoDescription: repo.description || null,
+      updated: formatDate(repo.pushed_at),
       language: repo.language,
       stars: repo.stargazers_count,
       topics: repo.topics || [],
+      homepage: repo.homepage || null,
+      archived: Boolean(repo.archived),
     };
   });
 
-  const curatedBySlug = new Map(projects.filter((project) => project.repoSlug).map((project) => [project.repoSlug.toLowerCase(), project]));
-  const githubFeatured = repositories
-    .filter((repo) => !repo.fork && !repo.archived && repo.topics?.includes(FEATURE_TOPIC))
-    .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))
-    .map((repo) => curatedBySlug.get(repo.name.toLowerCase()) || {
+  programs = curatedPrograms.map((program) => {
+    const project = projects.find((item) => item.id === program.projectId);
+    return project ? { ...program, repositoryUpdated: project.updated } : { ...program };
+  });
+
+  const curatedSlugs = new Set(
+    curatedProjects.filter((project) => project.repoSlug).map((project) => project.repoSlug.toLowerCase()),
+  );
+  const activeCurated = projects.filter(
+    (project) => project.featured && project.status !== "inactive" && !project.archived,
+  );
+  const discovered = repositories
+    .filter((repo) => !repo.fork && !repo.archived)
+    .filter((repo) => repo.topics?.includes(FEATURE_TOPIC))
+    .filter((repo) => !curatedSlugs.has(repo.name.toLowerCase()))
+    .map((repo) => ({
       id: repo.name,
       repoSlug: repo.name,
       name: repo.name,
@@ -174,16 +255,18 @@ function mergeGitHubData(repositories) {
       status: "github",
       updated: formatDate(repo.pushed_at),
       tags: repo.topics || [],
-      role: "Public GitHub project loaded from the repository profile.",
+      role: "Public GitHub project loaded from an explicit builder-featured topic.",
       repo: repo.html_url,
+      repoDescription: repo.description || null,
       demo: repo.homepage || null,
       featured: true,
-      cells: [],
       language: repo.language,
       stars: repo.stargazers_count,
-    });
+      archived: false,
+    }));
+
   renderMatrix();
-  renderProjectList(githubFeatured.length ? githubFeatured : projects.filter((project) => project.featured));
+  renderProjectList([...activeCurated, ...discovered]);
 }
 
 async function syncFromGitHub() {
@@ -195,10 +278,12 @@ async function syncFromGitHub() {
     if (!response.ok) throw new Error(`GitHub returned ${response.status}`);
     const repositories = await response.json();
     mergeGitHubData(repositories);
-    syncStatus.textContent = `Live from GitHub · ${repositories.length} public repositories checked`;
+    syncStatus.textContent = `Live facts from GitHub · ${repositories.length} public repositories checked`;
     syncStatus.dataset.state = "live";
   } catch (error) {
-    syncStatus.textContent = "Curated snapshot · GitHub live sync unavailable";
+    renderMatrix();
+    renderProjectList();
+    syncStatus.textContent = "Curated snapshot · GitHub live facts unavailable";
     syncStatus.dataset.state = "fallback";
   }
 }
