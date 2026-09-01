@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f4f0e8" />
+    <meta name="theme-color" content="#edf1ef" />
     <meta
       name="description"
-      content="Outisseus builds AI agent infrastructure, information systems, open-network experiments, and serialized fiction at @ChoeyCui."
+      content="Outisseus builds governed agent context, verifiable capability execution, information systems, and public experiments."
     />
     <meta property="og:title" content="Outisseus — Builder profile" />
     <meta
       property="og:description"
-      content="AI agents, infrastructure, information systems, open networks, and writing. Inspect the work in @ChoeyCui's Build Matrix."
+      content="AI agents, governed internal state, verifiable external action, information systems, and writing."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://outisseus.github.io/builder/" />
@@ -33,8 +33,9 @@
     <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="../apple-touch-icon.png?v=20260828-1" sizes="180x180" />
     <link rel="manifest" href="../site.webmanifest" />
-    <link rel="stylesheet" href="../styles.css?v=20260828-1" />
-    <script src="../app.js" defer></script>
+    <link rel="stylesheet" href="../styles.css?v=20260901-1" />
+    <script src="../projects-data.js?v=20260901-1" defer></script>
+    <script src="../app.js?v=20260901-1" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -74,7 +75,7 @@
           <p class="profile-location">AI agents · infrastructure · information systems · open networks</p>
           <div class="profile-links">
             <a class="button primary" href="https://x.com/ChoeyCui">Follow on X ↗</a>
-            <a class="button secondary" href="https://github.com/choeycui">GitHub ↗</a>
+            <a class="button secondary" href="https://github.com/outisseus">GitHub ↗</a>
           </div>
         </aside>
 
@@ -97,7 +98,7 @@
             <div>
               <span>Building</span>
               <strong>personal-context</strong>
-              <a href="https://github.com/choeycui/personal-context">Inspect repo ↗</a>
+              <a href="https://github.com/outisseus/personal-context">Inspect repo ↗</a>
             </div>
             <div>
               <span>Writing</span>
@@ -128,7 +129,8 @@
           </div>
           <p>
             One project can occupy more than one cell. Hover to trace repeated
-            appearances; select a card for status, links, and its current thesis.
+            appearances; select a card for its role in the system. Relationships
+            stay curated while public repository facts sync from GitHub.
           </p>
         </div>
 
@@ -153,21 +155,21 @@
         </div>
 
         <div class="dependency-map" aria-label="System dependencies">
-          <p class="dependency-label">Selected dependencies</p>
+          <p class="dependency-label">Agent boundary loop</p>
           <div class="dependency-flow">
             <button type="button" data-project-jump="personal-context">personal-context</button>
             <span aria-hidden="true">→</span>
-            <button type="button" data-project-jump="jarvis">Jarvis</button>
+            <span>minimum projection</span>
           </div>
           <div class="dependency-flow">
-            <button type="button" data-project-jump="intentgraph">IntentGraph</button>
+            <span>agent / planner</span>
             <span aria-hidden="true">→</span>
-            <span>agent applications</span>
-          </div>
-          <div class="dependency-flow">
             <button type="button" data-project-jump="detool">DeTool</button>
+          </div>
+          <div class="dependency-flow">
+            <span>verified usage proof</span>
             <span aria-hidden="true">→</span>
-            <span>trusted capabilities</span>
+            <span>candidate context update</span>
           </div>
         </div>
       </section>
@@ -178,10 +180,11 @@
             <div>
               <p class="eyebrow"><span></span> Proof before positioning</p>
               <h2 id="projects-title">Current projects</h2>
+              <p class="github-sync" id="github-sync-status" aria-live="polite">Loading curated snapshot…</p>
             </div>
             <p>
-              “Live” means inspectable now. Everything else is labeled at its
-              actual stage — design is not shipped software.
+              Repositories tagged <code>builder-featured</code> are loaded from
+              GitHub. “Live” still means inspectable now; design is not shipped software.
             </p>
           </div>
           <div class="project-list" id="project-list"></div>
@@ -240,7 +243,7 @@
           <h2>Watch the systems move from thesis → prototype → proof.</h2>
           <div>
             <a class="button light" href="https://x.com/ChoeyCui">Follow on X ↗</a>
-            <a class="button ghost" href="https://github.com/choeycui">Inspect GitHub ↗</a>
+            <a class="button ghost" href="https://github.com/outisseus">Inspect GitHub ↗</a>
           </div>
         </div>
       </section>

@@ -1,16 +1,16 @@
 :root {
-  --paper: #f4f0e8;
-  --paper-deep: #e9e2d6;
-  --ink: #141716;
-  --muted: #686a65;
-  --line: #cfc8ba;
-  --acid: #d8ff37;
-  --blue: #425dff;
-  --coral: #ff6f55;
-  --dark: #101311;
-  --white: #fffdf7;
+  --paper: #edf1ef;
+  --paper-deep: #dce5e1;
+  --ink: #111927;
+  --muted: #63706e;
+  --line: #c3cfcb;
+  --acid: #b8ff5e;
+  --blue: #3157ff;
+  --coral: #ff6f61;
+  --dark: #0c1420;
+  --white: #f8fbf9;
   --radius: 18px;
-  --shadow: 0 22px 60px rgba(20, 23, 22, 0.12);
+  --shadow: 0 22px 60px rgba(17, 25, 39, 0.14);
 }
 
 * {
@@ -24,7 +24,7 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at 82% 10%, rgba(66, 93, 255, 0.1), transparent 25rem),
+    radial-gradient(circle at 82% 10%, rgba(49, 87, 255, 0.1), transparent 25rem),
     var(--paper);
   color: var(--ink);
   font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -69,8 +69,8 @@ a {
   align-items: center;
   min-height: 74px;
   padding: 0 max(24px, calc((100% - 1180px) / 2));
-  border-bottom: 1px solid rgba(20, 23, 22, 0.14);
-  background: rgba(244, 240, 232, 0.9);
+  border-bottom: 1px solid rgba(17, 25, 39, 0.14);
+  background: rgba(237, 241, 239, 0.9);
   backdrop-filter: blur(18px);
 }
 
@@ -349,7 +349,7 @@ a {
 .button:hover,
 .button:focus-visible {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(20, 23, 22, 0.13);
+  box-shadow: 0 8px 24px rgba(17, 25, 39, 0.13);
 }
 
 .button.primary {
@@ -570,7 +570,7 @@ a {
   border: 1px solid var(--ink);
   border-radius: var(--radius);
   background: var(--white);
-  box-shadow: 0 18px 50px rgba(20, 23, 22, 0.08);
+  box-shadow: 0 18px 50px rgba(17, 25, 39, 0.08);
 }
 
 .matrix-scroll:focus-visible {
@@ -644,8 +644,8 @@ a {
   min-height: 182px;
   padding: 10px;
   background:
-    linear-gradient(rgba(20, 23, 22, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(20, 23, 22, 0.025) 1px, transparent 1px),
+    linear-gradient(rgba(17, 25, 39, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 25, 39, 0.03) 1px, transparent 1px),
     var(--white);
   background-size: 18px 18px;
 }
@@ -665,7 +665,7 @@ a {
   width: 100%;
   margin-bottom: 8px;
   padding: 13px 32px 13px 13px;
-  border: 1px solid rgba(20, 23, 22, 0.55);
+  border: 1px solid rgba(17, 25, 39, 0.55);
   border-radius: 10px;
   background: rgba(255, 253, 247, 0.96);
   color: var(--ink);
@@ -761,13 +761,32 @@ a {
   color: var(--white);
 }
 
+.github-sync {
+  margin: 12px 0 0;
+  color: #8d9a96;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.github-sync[data-state="live"]::before {
+  color: var(--acid);
+  content: "● ";
+}
+
+.github-sync[data-state="fallback"]::before {
+  color: var(--coral);
+  content: "○ ";
+}
+
 .section-heading.inverse > p,
 .section-heading.inverse .eyebrow {
-  color: #a9aea8;
+  color: #aab6b2;
 }
 
 .project-list {
-  border-top: 1px solid #3d423e;
+  border-top: 1px solid #344052;
 }
 
 .project-row {
@@ -777,11 +796,11 @@ a {
   align-items: center;
   min-height: 130px;
   padding-block: 24px;
-  border-bottom: 1px solid #3d423e;
+  border-bottom: 1px solid #344052;
 }
 
 .project-row .index {
-  color: #6e746e;
+  color: #748194;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 12px;
 }
@@ -794,7 +813,7 @@ a {
 
 .project-row p {
   margin: 0;
-  color: #acb1ab;
+  color: #aeb9b6;
 }
 
 .project-row .row-meta {
@@ -821,8 +840,13 @@ a {
 
 .status-pill {
   padding: 4px 8px;
-  border: 1px solid #5d635e;
+  border: 1px solid #536174;
   border-radius: 999px;
+}
+
+.repo-facts {
+  color: #8d9a96;
+  font-size: 9px;
 }
 
 .writing-section {
